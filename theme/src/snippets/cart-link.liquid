@@ -1,0 +1,5 @@
+<a href="/cart">
+  {% include 'icon-cart' %}
+  {{ 'layout.cart.title' | t }}
+  ({{ cart.item_count }} {{ 'layout.cart.items_count' | t: count: cart.item_count }})
+</a>

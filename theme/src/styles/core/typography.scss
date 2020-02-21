@@ -3,10 +3,12 @@ html {
 }
 
 body {
-  font-family: $font-body;
+  // font-family: $font-body;
+  font-family: $hnpr;
   font-weight: $font-body-weight;
   font-style: $font-body-style;
-  font-size: 1.6rem;
+  font-size: 16px;
+  color: $color-dark;
 }
 
 h1,
@@ -29,4 +31,52 @@ select {
 
 a:focus {
   color: inherit;
+}
+
+@font-face {
+  font-family: 'Aktiv-Grotesk-Corp-Regular';
+  src: url('~/assets/AktivGroteskCorp-Regular.eot');
+  src: url('~/assets/AktivGroteskCorp-Regular'),
+      url('~/assets/AktivGroteskCorp-Regular.eot?#iefix') format('embedded-opentype'),
+      url('~/assets/AktivGroteskCorp-Regular.woff2') format('woff2'),
+      url('~/assets/AktivGroteskCorp-Regular.woff') format('woff'),
+      url('~/assets/AktivGroteskCorp-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Aktiv-Grotesk-Corp-Medium';
+  src: url('~/assets/AktivGroteskCorp-Medium.eot');
+  src: url('~/assets/AktivGroteskCorp-Medium'),
+      url('~/assets/AktivGroteskCorp-Medium.eot?#iefix') format('embedded-opentype'),
+      url('~/assets/AktivGroteskCorp-Medium.woff2') format('woff2'),
+      url('~/assets/AktivGroteskCorp-Medium.woff') format('woff'),
+      url('~/assets/AktivGroteskCorp-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Aktiv-Grotesk-Corp-Bold';
+  src: url('~/assets/AktivGroteskCorp-Bold.eot');
+  src: url('~/assets/AktivGroteskCorp-Bold'),
+      url('~/assets/AktivGroteskCorp-Bold.eot?#iefix') format('embedded-opentype'),
+      url('~/assets/AktivGroteskCorp-Bold.woff2') format('woff2'),
+      url('~/assets/AktivGroteskCorp-Bold.woff') format('woff'),
+      url('~/assets/AktivGroteskCorp-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica-Neue-Pro-Roman';
+  src: url('~/assets/HelveticaNeueLTPro-Roman.otf');
+  // src: local('~/assets/AktivGroteskCorp-Bold'),
+  //     url('~/assets/AktivGroteskCorp-Bold.eot?#iefix') format('embedded-opentype'),
+  //     url('~/assets/AktivGroteskCorp-Bold.woff2') format('woff2'),
+  //     url('~/assets/AktivGroteskCorp-Bold.woff') format('woff'),
+  //     url('~/assets/AktivGroteskCorp-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
 }
