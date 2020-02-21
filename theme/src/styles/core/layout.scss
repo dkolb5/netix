@@ -13,3 +13,85 @@ body,
 html {
   height: 100%;
 }
+
+.d-flex {
+  @include flexbox();
+}
+/* -------------------
+Color Realted
+------------------- */
+.color-orange {
+  color: $color-orange;
+}
+
+.bg-dark {
+  background: $color-dark;
+}
+
+/* -------------------
+Spacings
+------------------- */
+.spacing-top-xxl {
+  padding-top: 256px;
+}
+
+.spacing-bottom-xxl {
+  padding-bottom: 256px;
+}
+
+.spacing-top-and-bottom-xxl {
+  padding-top: 256px;
+  padding-bottom: 256px;
+}
+
+.spacing-top-xl {
+  padding-top: 208px;
+}
+
+.spacing-bottom-xl {
+  padding-bottom: 208px;
+}
+
+.spacing-top-and-bottom-xl {
+  padding-top: 208px;
+  padding-bottom: 208px;
+}
+
+.spacing-top-lg {
+  padding-top: 172px;
+}
+
+.spacing-bottom-lg {
+  padding-bottom: 172px;
+}
+
+.spacing-top-and-bottom-lg {
+  padding-top: 172px;
+  padding-bottom: 172px;
+}
+
+.spacing-top-md {
+  padding-top: 150px;
+}
+
+.spacing-bottom-md {
+  padding-bottom: 150px;
+}
+
+.spacing-top-and-bottom-md {
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+
+.spacing-top-sm {
+  padding-top: 116px;
+}
+
+.spacing-bottom-sm {
+  padding-bottom: 116px;
+}
+
+.spacing-top-and-bottom-sm {
+  padding-top: 116px;
+  padding-bottom: 116px;
+}

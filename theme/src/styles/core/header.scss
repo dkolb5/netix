@@ -5,6 +5,28 @@
   top: 0;
 }
 
-header .navigation-memn {
+header .navigation-menu ul {
   list-style: none;
+  padding-left: 0;
+
+  a {
+    text-transform: uppercase;
+    color: $color-white;
+    font-size: 0.75em;
+
+    &.cta-link {
+      border: 1px solid $color-white;
+      border-radius: 30px;
+      font-size: 0.875em;
+      padding: 21.5px 30px;
+    }
+  }
+}
+
+#header-section-one .row {
+  padding-top: 30px;
+}
+
+#main-navigation {
+  margin-right: 16.333%;
 }
