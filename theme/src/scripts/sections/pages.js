@@ -158,7 +158,7 @@ window.addEventListener("DOMContentLoaded", () => {
     tl.from(chars, {duration: 0.8, opacity:0, scale:0, y:80, rotationX:180, transformOrigin:"0% 50% -50",  ease:"back", stagger: 0.1}, "+=0");
     full_item.classList.add('has-been-animated');
   }
-  hero_text();
+  hero_animated_text();
 
   function gasp_text(class_name) {
     var tl = gsap.timeline(), 
