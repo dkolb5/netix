@@ -1,3 +1,5 @@
+@import url("https://use.typekit.net/fdq6bgw.css");
+
 html {
   font-size: 62.5%;
 }
@@ -8,6 +10,7 @@ body {
   font-weight: $font-body-weight;
   font-style: $font-body-style;
   font-size: 16px;
+  line-height: 1.5em;
   color: $color-dark;
 }
 
@@ -17,7 +20,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $font-heading;
+  // font-family: $font-heading;
+  font-family: $age;
+  font-weight: 700;
+  margin-top: 0;
 }
 
 body,
@@ -29,54 +35,86 @@ select {
   text-size-adjust: 100%;
 }
 
+main p {
+  margin-top: 0;
+  margin-bottom: 1.25em;
+}
+
 a:focus {
   color: inherit;
 }
 
 @font-face {
-  font-family: 'Aktiv-Grotesk-Corp-Regular';
-  src: url('~/assets/AktivGroteskCorp-Regular.eot');
-  src: url('~/assets/AktivGroteskCorp-Regular'),
-      url('~/assets/AktivGroteskCorp-Regular.eot?#iefix') format('embedded-opentype'),
-      url('~/assets/AktivGroteskCorp-Regular.woff2') format('woff2'),
-      url('~/assets/AktivGroteskCorp-Regular.woff') format('woff'),
-      url('~/assets/AktivGroteskCorp-Regular.ttf') format('truetype');
-  font-weight: normal;
+  font-family: 'aktiv-grotesk-extended', sans-serif;
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Aktiv-Grotesk-Corp-Medium';
-  src: url('~/assets/AktivGroteskCorp-Medium.eot');
-  src: url('~/assets/AktivGroteskCorp-Medium'),
-      url('~/assets/AktivGroteskCorp-Medium.eot?#iefix') format('embedded-opentype'),
-      url('~/assets/AktivGroteskCorp-Medium.woff2') format('woff2'),
-      url('~/assets/AktivGroteskCorp-Medium.woff') format('woff'),
-      url('~/assets/AktivGroteskCorp-Medium.ttf') format('truetype');
+  font-family: 'aktiv-grotesk-extended', sans-serif;
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Aktiv-Grotesk-Corp-Bold';
-  src: url('~/assets/AktivGroteskCorp-Bold.eot');
-  src: url('~/assets/AktivGroteskCorp-Bold'),
-      url('~/assets/AktivGroteskCorp-Bold.eot?#iefix') format('embedded-opentype'),
-      url('~/assets/AktivGroteskCorp-Bold.woff2') format('woff2'),
-      url('~/assets/AktivGroteskCorp-Bold.woff') format('woff'),
-      url('~/assets/AktivGroteskCorp-Bold.ttf') format('truetype');
-  font-weight: bold;
+  font-family: 'aktiv-grotesk-extended', sans-serif;
+  font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Helvetica-Neue-Pro-Roman';
   src: url('~/assets/HelveticaNeueLTPro-Roman.otf');
-  // src: local('~/assets/AktivGroteskCorp-Bold'),
-  //     url('~/assets/AktivGroteskCorp-Bold.eot?#iefix') format('embedded-opentype'),
-  //     url('~/assets/AktivGroteskCorp-Bold.woff2') format('woff2'),
-  //     url('~/assets/AktivGroteskCorp-Bold.woff') format('woff'),
-  //     url('~/assets/AktivGroteskCorp-Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
+}
+
+.light-text {
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $color-white;
+  }
+}
+
+h2 {
+  font-size: 3.125em; // 50
+  line-height: 1.2em;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+h3 {
+  font-size: 2.75em; // 44
+  line-height: 1.136em;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-size: 1.875em; // 30
+  line-height: 1.0677em;
+  text-transform: uppercase;
+  margin-bottom: 1em;
+}
+
+.subtitle {
+  font-size: 0.75em; // 12
+  line-height: 1.25em;
+  text-transform: uppercase;
+  font-family: $age;
+  font-weight: 700;
+}
+
+.ninety {
+  font-size: 5.625em; // 90
+  line-height: 1.2777em;
+  margin-bottom: 0.24em;
+  margin-top: 0;
+  text-transform: uppercase;
+  font-weight: 700;
 }

@@ -63,10 +63,18 @@ $breakpoints: (
 $color-orange: #FA4824;
 $color-white: #ffffff;
 $color-dark: #171716;
-$color-light0gray: #171716;
+$color-light-gray: #171716;
+$color-gray: #F2F0EE;
+$color-form-gray: #908F8F;
 
 // Fonts 
-$agr: 'Aktiv-Grotesk-Corp-Regular', sans-serif;
-$agm: 'Aktiv-Grotesk-Corp-Medium', sans-serif;
-$agb: 'Aktiv-Grotesk-Corp-Bold', sans-serif;
+// $agr: 'Aktiv-Grotesk-Corp-Regular', sans-serif;
+// $agm: 'Aktiv-Grotesk-Corp-Medium', sans-serif;
+// $agb: 'Aktiv-Grotesk-Corp-Bold', sans-serif;
+$agr: aktiv-grotesk-extended,sans-serif;
+$agm: aktiv-grotesk-extended,sans-serif;
+$agb: aktiv-grotesk-extended,sans-serif;
+$age: 'aktiv-grotesk-extended', sans-serif;
 $hnpr: 'Helvetica-Neue-Pro-Roman', sans-serif;
+
+$cubic: cubic-bezier(0.255, 0.195, 0.135, 0.99);

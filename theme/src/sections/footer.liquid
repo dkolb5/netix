@@ -1,4 +1,117 @@
 <footer>
+  <section id="footer-section-one">
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <p class="subtitle with-border">About</p>
+            <a href="" class="arrow-button">
+              <h3>It all started with a crushed bag <span class="inline-icon">{% include 'icon-right-orange' %}</span></h3>
+            </a>
+         </div>
+         <div class="col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1 col-xs-12 col-xs-offset-0">
+          <p class="subtitle with-border">Newsletter</p>
+
+          {% form 'contact' %}
+            <div class="form-wrapper">
+              {{ form.errors | default_errors }}
+              <div class="form-row message">
+                <p>Sign up for Netix emails and get exclusive offers, new product previews and more.</p>
+              </div>
+              <div class="form-row inline-submit">
+                <label for="ContactFormEmail">Email <span class="color-red">*</span></label>
+                <input type="text"
+                name="contact[email]"
+                id="ContactFormEmail"
+                placeholder="Your Email" required>
+                <input type="submit" class="button" value="SIGN ME UP">
+              </div>
+            </div>
+            <div class="form-response"></div>
+          {% endform %}
+        </div>
+        <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 col-xs-12 col-xs-offset-0">
+          <p class="subtitle with-border">Questions?</p>
+          <p>Got questions? We’ve got answers.</p>
+          <ul class="contact-information">
+            {% if  settings.footer_general_email_1 != blank and footer_general_phone_1 != blank %}
+              <li>
+                <p>
+                  <a href="tel:+1 956-314-0058" class="single-line-hover">+1 956-314-0058</a>
+                </p>
+                <p>
+                  <a href="mailto:info@netixfitness.com" class="double-line-hover">info@netixfitness.com</a>
+                </p>
+              </li>
+            {% endif %}
+            
+            {% if footer_general_press_email-1 != blank %}
+              <li>
+                <p class="subtitle">presss inquiry</p>
+                <p>
+                  <a href="mailto:press@netixfitness.com" class="double-line-hover">press@netixfitness.com</a>
+                </p>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="row middle-xs" id="subfooter">
+      <div class="col-xs-10 col-xs-offset-1">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            <p>Copyright &copy; {{ 'now' | date: "%Y" }}, Netix</p>
+            <ul class="regular-menu">
+              {% for link in linklists.sub-footer-one.links %}
+                <li>
+                  <p><a href="{{ link.url }}" class="double-line-hover">{{  link.title }}</a></p>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1 col-xs-12 col-xs-offset-0">
+            <ul class="logo-list">
+              <li>
+                <p class="subtitle">Funded Through</p>
+              </li>
+              <li>
+                <img src="https://cdn.shopify.com/s/files/1/0333/5084/4552/files/indie-gogo-pink.png?v=1582592266" alt="indie-gogo-pink">
+              </li>
+              <li>
+                <img src="https://cdn.shopify.com/s/files/1/0333/5084/4552/files/patent-pending.png?v=1582592266" alt="patent pending">
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 col-xs-12 col-xs-offset-0 end-xs">
+            <ul class="social-icons">
+              <li>
+                <a href="{{ settings.social_facebook_link }}" target="_blank">
+                  {% include 'icon-facebook-f' %}
+                </a>
+              </li>
+              <li>
+                <a href="{{ settings.social_twitter_link }}" target="_blank">
+                  {% include 'icon-twitter' %}
+                </a>
+              </li>
+              <li>
+                <a href="{{ settings.social_instagram_link }}" target="_blank">
+                  {% include 'icon-instagram' %}
+                </a>
+              </li>
+            </ul>
+            <p>
+              Website by <a href="https://buzzworthystudio.com" class="single-line-hover" target="_blank">Buzzworthy</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
 
   {% comment %} {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
   <ul>

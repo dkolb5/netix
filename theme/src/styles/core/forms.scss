@@ -54,3 +54,100 @@ option {
   background-color: $color-error-bg;
   color: $color-body-text;
 }
+
+.form-wrapper {
+  label {
+    font-size: 0;
+  }
+}
+
+input {
+  width: 100%;
+  height: 65px;
+  padding: 0 10px;
+  font-family: $hnpr;
+
+  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: $color-form-gray;
+
+    @include transition(400ms all linear);
+  }
+
+  &::-moz-placeholder { /* Firefox 19+ */
+    color: $color-form-gray;
+    opacity: 0.5;
+
+    @include transition(400ms all linear);
+  }
+
+  &:-ms-input-placeholder { /* IE 10+ */
+    color: $color-form-gray;
+    opacity: 0.5;
+
+    @include transition(400ms all linear);
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+    color: $color-form-gray;
+    opacity: 0.5;
+
+    @include transition(400ms all linear);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  &:focus::-moz-placeholder {
+    color: transparent;
+  }
+
+  &:focus:-ms-input-placeholder {
+    color: transparent;
+  }
+
+  &:focus:-moz-placeholder { 
+    color: transparent;
+  }
+}
+
+.form-wrapper {
+  .message p {
+    font-family: $age;
+    font-weight: 700;
+  }
+
+  .inline-submit {
+    border-radius: 40px;
+    border: 1px solid $color-dark;
+    padding: 5px;
+
+    @include flexbox();
+    @include justify-content(space-between);
+    @include align-items(center);
+
+    input {
+      border: none;
+      background: transparent;
+      padding-left: 15px;
+      font-size: 1em;
+
+      &[type="submit"] {
+        background: $color-dark;
+        color: $color-white;
+        text-transform: uppercase;
+        font-family: $age;
+        border-top-right-radius: 40px;
+        border-bottom-right-radius: 40px;
+        width: 100%;
+        max-width: 140px;
+        font-weight: 700;
+        font-size: 0.75em;
+      }
+    }
+  }
+}

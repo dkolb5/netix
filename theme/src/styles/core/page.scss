@@ -1,21 +1,48 @@
 .hero-copy {
-  font-size: 11vw;
+  font-size: 9vw;
+  line-height: 9vw;
   text-transform: uppercase;
   color: $color-white;
-  font-family: $agb;
+  font-family: $age;
+  font-weight: 700;
   margin: 0;
 
   &.bottom {
     padding-left: 14.333%;
   }
+
+  &.dark-text {
+    color: $color-dark;
+  }
 }
 
+
 #home-section-one {
-  padding-bottom: 157px;
+  overflow: hidden;
 
   .row {
     position: relative;
     z-index: 1;
+  }
+
+  .absolute-background {
+    width: 140%;
+    height: 140%;
+  }
+
+  img {
+    max-width: 85%;
+    opacity: 0.5;
+  }
+
+  .bottom-home [class^=col-] {
+    position: relative;
+  }
+
+  .button-wrapper {
+    bottom: 100%;
+    position: absolute;
+    left: 60%;
   }
 }
 
@@ -29,4 +56,111 @@
   bottom: 0;
   opacity: 0.5;
   z-index: 0;
+}
+
+.changing-text {
+  @include flexbox();
+  @include justify-content(space-between);
+
+  .hero-copy:first-of-type {
+    padding-right: 3vw;
+  }
+}
+
+#home-section-two {
+  overflow: hidden;
+  position: relative;
+
+  .mr-col-1 + img {
+    margin-top: 65px;
+  }
+
+  .bg-gray-behind::before {
+    top: 50%;
+  }
+}
+
+#home-section-three .hero-copy {
+  font-weight: 500;
+}
+
+.counter-section {
+  counter-reset: row-item;
+
+  .row {
+    counter-increment: row-item-2;
+    
+    .count {
+      position: relative;
+
+      span {
+        position: relative;
+        font-size: 1em;
+        text-transform: uppercase;
+        color: $color-orange;
+        font-family: $age;
+      }
+
+      .current::before {
+        counter-increment: row-item;  
+        // position: absolute;
+        display: inline-flex;
+        
+        content: "0" counter(row-item);
+      }
+    }
+  }
+}
+
+#home-section-five {
+  .ninety:not(:last-of-type) {
+    margin-bottom: 0;
+  }
+
+  .ninety {
+    line-height: 1em;
+  }
+
+  p:not(.ninety) {
+    margin-top: 22px;
+    margin-bottom: 42px;
+  }
+
+  .subtitle {
+    font-weight: 400;
+    margin-bottom: 30px;
+  }
+
+  .image-align-bottom img {
+    opacity: 0.8;
+    background-blend-mode: multiply;
+  }
+}
+
+// Cta one
+.cta-one {
+  position: relative;
+
+  .absolute-background {
+    z-index: 0;
+    opacity: 0.3;
+  }
+
+  .row {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-copy {
+    font-weight: 500;
+  }
+
+  p {
+    text-transform: uppercase;
+
+    &:not(.hero-copy) {
+      margin-top: 18px;
+      margin-bottom: 25px;
+    }
+  }
 }

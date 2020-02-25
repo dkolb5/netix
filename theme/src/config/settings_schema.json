@@ -156,5 +156,25 @@
         "info": "Will be scaled down to 32 x 32px"
       }
     ]
+  },
+  {
+    "name": "Contact",
+    "settings": [
+      {
+        "type": "text",
+        "id": "footer_general_email_1",
+        "label": "Contact Email"
+      },
+      {
+        "type": "text",
+        "id": "footer_general_phone_1",
+        "label": "Contact Phone Number"
+      },
+      {
+        "type": "text",
+        "id": "footer_general_press_email-1",
+        "label": "Contact Press Email"
+      }
+    ]
   }
 ]
