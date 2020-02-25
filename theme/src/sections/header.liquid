@@ -37,11 +37,18 @@
           <nav role="navigation" class="navigation-menu" id="main-navigation">
             <ul class="d-flex center-xs between-xs">
               {% for link in linklists[section.settings.menu].links %}
+                {% assign downcase_title = link.title | downcase  %}
                 
                   
                 {% if link.title contains 'the list' %}
                   <li>
-                    <a href="{{ link.url }}" class="cta-link">
+                    <a href="{{ link.url }}" class="cta-link" data-anchor="get-on-the-list">
+                      {{ link.title }}
+                    </a>
+                  </li>
+                {% elsif downcase_title == 'newsletter' %}
+                  <li>
+                    <a href="#" data-anchor="footer-newsletter" class="single-line-hover white scroll-to">
                       {{ link.title }}
                     </a>
                   </li>

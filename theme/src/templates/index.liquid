@@ -9,7 +9,9 @@
     </div>
     <div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2 col-xs-10 col-xs-offset-2 changing-text">
       <p class="hero-copy">that </p>
-      <p class="hero-copy color-orange">powers ahead</p>
+      <div class="text-wrap">
+        <p class="hero-copy color-orange js-animating-text" id="changing-text-orange">powers ahead</p>
+      </div>
     </div>
     <div class="col-lg-7 col-lg-offset-1 col-md-7 col-md-offset-1 col-sm-7 col-sm-offset-1 col-xs-7 col-xs-offset-1">
       <div class="row middle-xs bottom-home">
@@ -19,7 +21,7 @@
         </div>
         <div class="col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2 col-sm-2 col-sm-offset-2 col-xs-2 col-xs-offset-2">
           <div class="button-wrapper">
-            <a href="#" class="bws-button circle-button video-button white">
+            <a href="#" class="bws-button circle-button video-button white" data-modal="demo-video">
               <div class="inner-circle">
                 {% include 'icon-play' %}
               </div>
@@ -71,7 +73,7 @@
   </div>
   <div class="row center-xs">
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-      <p class="hero-copy dark-text">NETIX KNOW WHAT IT TAKES</p> 
+      <p class="hero-copy dark-text js-animating-text" id="second-js-text">NETIX KNOWS WHAT IT TAKES</p> 
     </div>
   </div>
 </section>
@@ -175,6 +177,19 @@
           </div>
         </a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="bws-modal video-modal" id="demo-video">
+  <div class="row end-xs">
+    <a href="#" class="close-modal">
+      {% include 'icon-close-light' %}
+    </a>
+  </div>
+  <div class="row center-xs content">
+    <div class="col-xs-10 video-wrapper">
+      <video name="media" poster="{{ 'video_preview_placeholder.jpg' | asset_url }}"><source src="{{ 'placeholder_video.mp4' | asset_url }}" type="video/mp4"></video>
     </div>
   </div>
 </section>

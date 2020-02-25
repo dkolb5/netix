@@ -35,8 +35,14 @@
     opacity: 0.5;
   }
 
-  .bottom-home [class^=col-] {
-    position: relative;
+  .bottom-home {
+    [class^=col-] {
+      position: relative;
+    }
+
+    img + .subtitle {
+      margin-top: 10px;
+    }
   }
 
   .button-wrapper {
@@ -164,3 +170,28 @@
     }
   }
 }
+
+#list-section-one {
+  min-height: 100vh;
+
+  h3 {
+    text-transform: none;
+    font-size: 2.5em;
+    line-height: 1.275em;
+  }
+
+  .message p {
+    margin-bottom: 35px;
+  }
+}
+
+.js-animating-text {
+  // opacity: 0;
+  // @include transform(scale(0));
+}
+
+@media all and (min-width: 1024px) {
+  #list-section-one {
+    margin-bottom: 200px;
+  }
+} // End 1024 Min

@@ -56,16 +56,63 @@ option {
 }
 
 .form-wrapper {
+  .form-row {
+    position: relative;
+    margin-bottom: 20px;
+  }
+
   label {
     font-size: 0;
+    position: absolute;
+  }
+}
+
+.form-row.submit {
+  input[type="submit"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    opacity: 0;
+  }
+
+  .button-wrapper {
+    @include justify-content(center);
+  }
+
+  .regular-button,
+  .regular-button .inner-wrapper,
+  .regular-button .inner-wrapper .text {
+    pointer-events: none;
+  }
+
+  .regular-button {
+    max-width: 70%;
+    width: 100%;
+
+    .text {
+      padding: 0 52px;
+      height: 60px;
+
+      @include flexbox();
+      @include justify-content(center);
+      @include align-items(center);
+    }
   }
 }
 
 input {
   width: 100%;
-  height: 65px;
-  padding: 0 10px;
+  // height: 65px;
+  height: 70px;
+  padding: 0 30px;
   font-family: $hnpr;
+  border: 1px solid $color-dark;
+  border-radius: 50px;
 
   &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: $color-form-gray;
@@ -135,6 +182,8 @@ input {
       background: transparent;
       padding-left: 15px;
       font-size: 1em;
+      height: 65px;
+      padding: 0 10px;
 
       &[type="submit"] {
         background: $color-dark;

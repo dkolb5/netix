@@ -16,6 +16,11 @@ a {
   border-radius: 50%;
   position: relative;
   padding: 50%;
+
+  .inner-circle,
+  svg {
+    pointer-events: none;
+  }
   
   .inner-circle {
     width: 70%;
@@ -80,10 +85,10 @@ a {
     .inner-wrapper,
     .inner-circle {
       background: $color-orange;
+    }
 
-      .text {
-        color: $color-white;
-      }
+    .text {
+      color: $color-white;
     }
   }
 
@@ -111,13 +116,13 @@ a {
 
   .inner-wrapper {
     padding: 17.5px 62px;
+  }
 
-    .text {
-      font-family: $age;
-      text-transform: uppercase;
-      font-size: 0.875em;
-      font-weight: 700;
-    }
+  .text {
+    font-family: $age;
+    text-transform: uppercase;
+    font-size: 0.875em;
+    font-weight: 700;
   }
 }
 
@@ -202,4 +207,16 @@ a {
 
     @include transform(scaleX(1));
   }
+
+  &.white {
+    &::before {
+      background: $color-white;
+    }
+  }
+}
+
+.back-button {
+  padding: 30px;
+
+  @include inline-flex();
 }

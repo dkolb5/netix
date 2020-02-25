@@ -56,13 +56,27 @@
 
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
-  {% section 'header' %}
+  {% if page.title | downcase != 'get on the list' %}
+    {% comment %} Don\t display the header {% endcomment %}
+  {% else %}
+    {% section 'header' %}
+  {% endif %}
 
   <main role="main" id="MainContent">
     {{ content_for_layout }}
   </main>
 
-  {% section 'footer' %}
+  {% if page.title | downcase != 'get on the list' %}
+    {% comment %} Don\t display the footer {% endcomment %}
+  {% else %}
+    {% section 'footer' %}
+  {% endif %}
 
+  <!--
+  <script type="text/javascript" src="{{ 'gsap.min.js' | asset_url }}"></script>
+  <script type="text/javascript" src="{{ 'ScrollToPlugin.min.js' | asset_url }}"></script>
+  <script type="text/javascript" src="{{ 'SplitText.js' | asset_url }}"></script>
+  -->
+  
 </body>
 </html>

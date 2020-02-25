@@ -1,0 +1,43 @@
+<section id="list-section-one">
+  <div class="row">
+    <div class="col-xs-12">
+      <a href="/" class="back-button">{% include 'icon-back-arow-right-dark' %}</a>
+    </div>
+  </div>
+  <div class="row center-xs">
+    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-10">
+      {% form 'contact' %}
+        <div class="form-wrapper">
+          <div class="form-row message">
+            <h3>Be the first one who gets the bag</h3>
+            <p>Sign up for Netix emails and get exclusive offers, new product previews and more.</p>
+          </div>
+          <div class="form-row single">
+            <label for="ContactFormFullName">Your Name</label>
+            <input type="text"
+              name="contact[full-name]"
+              id="ContactFormFullName"
+              placeholder="Your Name" required>
+          </div>
+          <div class="form-row single">
+            <label for="ContactFormEmail">Your Name</label>
+            <input type="text"
+              name="contact[email]"
+              id="ContactFormEmail"
+              placeholder="Your Email" required>
+          </div>
+          <div class="form-row single submit">
+            <div class="button-wrapper">
+              <a href="#" class="regular-button orange">
+                <input type="submit" lass="regular-button" value="SUBMIT NOW">
+                <!-- <div class="inner-wrapper"> -->
+                  <span class="text">submit now</span>
+                <!-- </div> -->
+              </a>
+            </div>
+          </div>
+        </div>
+      {% endform %}      
+    </div>
+  </div>
+</section>

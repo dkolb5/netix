@@ -9,7 +9,7 @@
               <h3>It all started with a crushed bag <span class="inline-icon">{% include 'icon-right-orange' %}</span></h3>
             </a>
          </div>
-         <div class="col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1 col-xs-12 col-xs-offset-0">
+         <div class="col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1 col-xs-12 col-xs-offset-0" id="footer-newsletter">
           <p class="subtitle with-border">Newsletter</p>
 
           {% form 'contact' %}
@@ -34,10 +34,10 @@
           <p class="subtitle with-border">Questions?</p>
           <p>Got questions? We’ve got answers.</p>
           <ul class="contact-information">
-            {% if  settings.footer_general_email_1 != blank and footer_general_phone_1 != blank %}
+            {% if  settings.footer_general_email_1 != blank and settings.footer_general_phone_1 != blank %}
               <li>
                 <p>
-                  <a href="tel:+1 956-314-0058" class="single-line-hover">+1 956-314-0058</a>
+                  <a href="tel:{{ settings.footer_general_phone_1 }}" class="single-line-hover">{{ settings.footer_general_phone_1 }}</a>
                 </p>
                 <p>
                   <a href="mailto:info@netixfitness.com" class="double-line-hover">info@netixfitness.com</a>
@@ -45,11 +45,11 @@
               </li>
             {% endif %}
             
-            {% if footer_general_press_email-1 != blank %}
+            {% if settings.footer_general_press_email_1 != blank %}
               <li>
                 <p class="subtitle">presss inquiry</p>
                 <p>
-                  <a href="mailto:press@netixfitness.com" class="double-line-hover">press@netixfitness.com</a>
+                  <a href="mailto:{{ settings.footer_general_press_email_1 }}" class="double-line-hover">{{ settings.footer_general_press_email_1 }}</a>
                 </p>
               </li>
             {% endif %}
