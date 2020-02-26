@@ -27,8 +27,15 @@
                 <input type="submit" class="button" value="SIGN ME UP">
               </div>
             </div>
-            <div class="form-response"></div>
+            
           {% endform %}
+
+          <div class="row form-response">
+            <div class="success">
+              {% include 'icon_circle_check' %}
+              <p class="x-large">Thank you for subscribing! We'll be in touch soon.</p>
+            </div>
+          </div>
         </div>
         <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 col-xs-12 col-xs-offset-0">
           <p class="subtitle with-border">Questions?</p>

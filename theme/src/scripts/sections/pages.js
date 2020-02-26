@@ -438,43 +438,49 @@ $( document ).ready(function() {
 		let current = this;
 		
 			var $form = $(this);
-			console.log(event, this);
+			console.log(event, this );
+			success_message($form);
 			jQuery.ajax({
 				type: 'POST',
 				async: true,
-				// async: false,
 				url: '/contact',
 				data: $form.serialize(),
 				beforeSend: function() {
 					$form.addClass('sending');
 				},
 				error: function(t) {
-					console.log(t);
+					// console.log(t);
 				},
 				success: function(response) {
-					console.log('success blah');
-					console.log($form.target, event.target);
-					// let success = $form[0].parentElement.parentElement.parentElement.parentElement;
-					// let success_row = success.querySelector('.successMsg');
-					// let success_children = success_row.childNodes[1];
-					// console.log(success_children, $form,success_row, success);
-					// console.log(success_children,success_children.clientHeight,  success_children.style, success_children.parentElement);
-					// let item_height = success_children.clientHeight + 40;
-					
-					// $form[0].classList.add('transitioning-out');
-					
-					// let t1 = new TimelineMax();
-					// t1.to($form, {duration: 0.4, y: -20, ease: "power0.ease", opacity: 0});
-					// t1.to($form, {duration: 0.4, ease: "power0.ease", height: 0});
-					
-					// gsap.to(success_row, {delay: 0.2, duration: 0.4, ease: "power0.ease", height: item_height,y: 0, opacity: 1,});
-	
+				console.log('success blah');
+				console.log($form.target, event.target);
 				}
 			});
 			event.preventDefault();
 	})
 })
 
+function success_message(form_) {
+	let form = form_[0];
+	let form_bounding = form.getBoundingClientRect();
+	let success = form.nextElementSibling;
+	let inner = success.childNodes[1];
+
+	console.log(form_, form_[0])
+
+	let tl = new TimelineMax();
+	success.style.position = 'absolute';
+	success.style.overflow = 'visible';
+	tl.to(success, {duration: 0.4, scale: 1, ease: "Quint.easeInOut", y: -form_bounding.height - 20});
+	tl.to(success, {duration: 0.4, height: inner.clientHeight, ease: "Quint.easeInOut"});
+	tl.to(form_, {duration: 0.4, opacity: 0, y: -30, ease: "Quint.easeInOut"});
+	tl.to(inner, {duration: 0, y: '30%', delay: -0.4, ease: "Quint.easeInOut"});
+	tl.to(inner, {duration: 0.4, opacity: 1, y: 0, delay: -0.2, ease: "Quint.easeInOut"});
+
+
+	// console.log(success,form);
+	console.log(form, );
+}
 // ===========================================
 // Greensock - SplitText / strings
 // ===========================================

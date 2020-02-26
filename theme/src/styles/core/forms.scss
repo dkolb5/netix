@@ -78,12 +78,14 @@ option {
     bottom: 0;
     z-index: 2;
     opacity: 0;
+    pointer-events: all;
   }
 
   .button-wrapper {
     @include justify-content(center);
   }
 
+  .button-wrapper,
   .regular-button,
   .regular-button .inner-wrapper,
   .regular-button .inner-wrapper .text {
@@ -190,8 +192,8 @@ input {
         color: $color-white;
         text-transform: uppercase;
         font-family: $age;
-        border-top-right-radius: 40px;
-        border-bottom-right-radius: 40px;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
         width: 100%;
         max-width: 140px;
         font-weight: 700;
@@ -200,3 +202,43 @@ input {
     }
   }
 }
+
+#footer-newsletter {
+  position: relative;
+}
+
+.form-response {
+  overflow: hidden;
+  position: relative;
+  height: 0;
+
+  @include transform(scale(0));
+
+  .success {
+    border-radius: 40px;
+    // background: #171716;
+    background: #fff;
+    padding: 30px 20px 20px;
+    // color: #fff;
+    color: $color-orange;
+    position: relative;
+    opacity: 0;
+    border: 2px solid $color-orange;
+
+    @include transform(translate(0, 100%));
+
+    svg {
+      margin-bottom: 10px;
+
+      path {
+        // fill: $color-white;
+        fill: $color-orange;
+      }
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+  }
+}
+
