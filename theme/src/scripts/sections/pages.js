@@ -180,70 +180,66 @@ window.addEventListener("DOMContentLoaded", (event) => {
   }
   
 
-    // gsap.set(text_one, {perspective: 400});
-    // // gsap.staggerFrom(mySplitText.chars, 0.8, {opacity: 0, sclae: 0, y: 80, rotationX: 180, transformOrigin: '0% 50% -50%', ease: Back.easeOut}, 0.01, allDone);
-    // gsap.to(mySplitText.chars, {
-    //   // duration: 1,
-    //   // // y: -80,
-    //   // opacity: 0,
-    //   // scale: 0, 
-    //   // y: 80, 
-    //   // rotationX: 180, 
-    //   // transformOrigin: '0% 50% -50%',
-    //   // stagger: {
-    //   //   amount: 0.4,
-    //   //   from: "left",
-    //   //   grid: "auto",
-    //   //   onComplete:  allDone, //define callbacks inside the stagger to make them apply to each sub-tween
-    //   // }
-    //   x: "+=100",
-    //   duration: 0.4,
-    //   ease: "elastic.inOut",
-    //   // y: -80,
-    //   opacity: 0,
-    //   scale: 0, 
-    //   y: 80, 
-    //   rotationX: 180, 
-    //   transformOrigin: '0% 50% -50%',
-    //   stagger: {
-    //     amount: 0.2,
-    //     from: "center",
-    //     grid: "auto",
-    //     // onComplete: myFunction //define callbacks inside the stagger to make them apply to each sub-tween
-    //     onComplete: allDone,
-    //   }
-    // })
+	// gsap.set(text_one, {perspective: 400});
+	// // gsap.staggerFrom(mySplitText.chars, 0.8, {opacity: 0, sclae: 0, y: 80, rotationX: 180, transformOrigin: '0% 50% -50%', ease: Back.easeOut}, 0.01, allDone);
+	// gsap.to(mySplitText.chars, {
+	//   // duration: 1,
+	//   // // y: -80,
+	//   // opacity: 0,
+	//   // scale: 0, 
+	//   // y: 80, 
+	//   // rotationX: 180, 
+	//   // transformOrigin: '0% 50% -50%',
+	//   // stagger: {
+	//   //   amount: 0.4,
+	//   //   from: "left",
+	//   //   grid: "auto",
+	//   //   onComplete:  allDone, //define callbacks inside the stagger to make them apply to each sub-tween
+	//   // }
+	//   x: "+=100",
+	//   duration: 0.4,
+	//   ease: "elastic.inOut",
+	//   // y: -80,
+	//   opacity: 0,
+	//   scale: 0, 
+	//   y: 80, 
+	//   rotationX: 180, 
+	//   transformOrigin: '0% 50% -50%',
+	//   stagger: {
+	//     amount: 0.2,
+	//     from: "center",
+	//     grid: "auto",
+	//     // onComplete: myFunction //define callbacks inside the stagger to make them apply to each sub-tween
+	//     onComplete: allDone,
+	//   }
+	// })
 
-    function allDone(current) {
-      current.revert();
-    }
-  
-  // }
-//   console.log(' json' );
-//   // console.log(jQuery.getJSON("/pages.json?=front-page") );
-//   let xhr = new XMLHttpRequest();
-// // xhr.open('GET', 'https://tcl-stage-b.myshopify.com/admin/products/4510852907148/metafields.json');
-//   xhr.open('GET', '/pages.json?=get-on-the-list');
-//   xhr.onreadystatechange = () => {
-//     if (xhr.readyState == 3) {
-//       setTimeout( () => {
-//         let p = document.createElement('p');
-//         p.innerHTML = 'Loading';
-//         p.classList.add('loading-message');
-//         document.body.append(p);
-//       }, 1000);
-//     } else if (xhr.readyState == 4) {
-//       setTimeout( () => {
-//       let loading = document.querySelector('.loading-message');
-//       loading.remove();
+	// function allDone(current) {
+	// 	current.revert();
+	// }
 
-//       let data = JSON.parse(xhr.responseText);
-//       console.log(data);
-//       // add_to_page(data);
-//       }, 2000);
-//     }
-//   }
-//   xhr.send();
+
+	// Button Hovers
+	let video_buttons = document.querySelectorAll('.circle-button');
+	video_buttons.forEach(button => {
+		
+		button.addEventListener('mousemove', (event) => {
+			let inner = event.target.querySelector('.inner-circle');
+			let inner_rect = inner.getBoundingClientRect();	
+			let moveX = event.clientX - (inner_rect.left) - (inner_rect.width / 2);
+			let moveY = (event.clientY - (inner_rect.top) - inner_rect.height / 2);
+			let skewX = event.movementX * 2.1;
+			let skewY = event.movementY * 2.1;
+
+			gsap.to(inner, {duration: 0.1, skewX: skewX, skewY: skewY, transformOrigin: "center", ease: "Quint.easeInOut", x: moveX, y: moveY});
+		});
+
+		button.addEventListener('mouseout', (event) => {
+			let inner = event.target.querySelector('.inner-circle');
+			let inner_rect = inner.getBoundingClientRect();
+			gsap.to(inner, {duration: 0.2, ease: "Quint.easeInOut", skewX: 0, skewY: 0, x: 0, y: 0});
+		});
+	})
 
 	class bwsSingleSlider {
 		constructor(settings) {
@@ -428,17 +424,14 @@ window.addEventListener("DOMContentLoaded", (event) => {
 		'id': 'slider-single',
 	});
 	slider_one._init();
-
+	
 	
 });
 
 $( document ).ready(function() {
 	$('#contact_form').submit(function(event) {
 		event.preventDefault();
-		let current = this;
-		
 			var $form = $(this);
-			console.log(event, this );
 			success_message($form);
 			jQuery.ajax({
 				type: 'POST',
@@ -452,8 +445,8 @@ $( document ).ready(function() {
 					// console.log(t);
 				},
 				success: function(response) {
-				console.log('success blah');
-				console.log($form.target, event.target);
+				// console.log('success blah');
+				// console.log($form.target, event.target);
 				}
 			});
 			event.preventDefault();
@@ -466,8 +459,6 @@ function success_message(form_) {
 	let success = form.nextElementSibling;
 	let inner = success.childNodes[1];
 
-	console.log(form_, form_[0])
-
 	let tl = new TimelineMax();
 	success.style.position = 'absolute';
 	success.style.overflow = 'visible';
@@ -476,10 +467,6 @@ function success_message(form_) {
 	tl.to(form_, {duration: 0.4, opacity: 0, y: -30, ease: "Quint.easeInOut"});
 	tl.to(inner, {duration: 0, y: '30%', delay: -0.4, ease: "Quint.easeInOut"});
 	tl.to(inner, {duration: 0.4, opacity: 1, y: 0, delay: -0.2, ease: "Quint.easeInOut"});
-
-
-	// console.log(success,form);
-	console.log(form, );
 }
 // ===========================================
 // Greensock - SplitText / strings

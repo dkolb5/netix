@@ -11,23 +11,29 @@ a {
 
 .circle-button {
   width: 100%;
-  
-  // padding: 88%;
   border-radius: 50%;
   position: relative;
   padding: 50%;
 
+  @include transition(400ms all $cubic);
+
   .inner-circle,
   svg {
     pointer-events: none;
+
+    @include transition(400ms all $cubic);
   }
+
+  .inner-circle,
+    svg {
+      pointer-events: none;
+    }
   
   .inner-circle {
     width: 70%;
     border-radius: 50%;
     position: absolute;
     padding: 38%;
-    // padding: 22%;
 
     .text {
       font-size: 1em;
@@ -47,10 +53,8 @@ a {
 
   &.video-button {
     padding: 78%;
-    // padding: 51%;
 
     .inner-circle {
-      // padding-bottom: 50%;
       padding-bottom: 37%;
 
       svg {
@@ -63,6 +67,18 @@ a {
         bottom: 0;
         display: block;
         margin: auto;
+      }
+    }
+
+    &.white:hover {
+      box-shadow: none;
+    
+      .inner-circle {
+        background: $color-orange;
+
+        svg polygon {
+          fill: $color-white;
+        }
       }
     }
   }
@@ -89,6 +105,10 @@ a {
 
     .text {
       color: $color-white;
+    }
+
+    &:hover {
+      background: $color-white;
     }
   }
 

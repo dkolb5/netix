@@ -8,11 +8,6 @@ import 'lazysizes/plugins/respimg/ls.respimg';
 import '../../styles/theme.scss';
 import '../../styles/theme.scss.liquid';
 
-// import '../../assets/gsap.min.js';
-// import '../../assets/ScrollToPlugin.min.js';
-// import '../../assets/SplitText.js';
-// import '../../assets/utils/strings.js';
-// import '../sections/pages';
 import '../../assets/gsap.min.js';
 import '../../assets/ScrollToPlugin.min.js';
 import '../sections/pages';
