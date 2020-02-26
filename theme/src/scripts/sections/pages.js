@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", (event) => {
   if (document.body.classList.contains('template-index')) {
     // Get the total number of items set the innerHTML
     let section_four = document.querySelectorAll('#home-section-four .row');
@@ -58,20 +58,22 @@ window.addEventListener("DOMContentLoaded", () => {
     let modal = document.getElementById(modal_id);
     let modal_close = modal.querySelector('.close-modal')
     let content = modal.querySelector('.content');
-    let tl = new TimelineMax();
+		let tl = new TimelineMax();
 
     modal.classList.add('active');
     document.body.classList.add('no-overflow');
 
-    tl.to(modal, {duration: 0.2, y: 0, opacity: 1, ease: "power0.ease"});
-    tl.to(modal_close, {duration: 0.4, y: 0, opacity: 1, ease: "power0.ease"});
-    tl.to(content, {duration: 0.4, y: 0, opacity: 1, ease: "power0.ease"});
+    tl.to(modal, {duration: 0.2, y: 0, opacity: 1, ease: "Quint.easeInOut"});
+    tl.to(modal_close, {duration: 0.4, y: 0, opacity: 1, ease: "Quint.easeInOut"});
+		tl.to(content, {duration: 0.4, y: 0, opacity: 1, ease: "Quint.easeInOut", onComplete: play_video });
 
-    if (modal.classList.contains('video-modal')) {
-      let video = modal.querySelector('video');
-      video.setAttribute('controls', true);
-      video.play();
-    }
+		function play_video() {
+			if (modal.classList.contains('video-modal')) {
+				let video = modal.querySelector('video');
+				video.setAttribute('controls', true);
+				video.play();
+			}
+		}
   }
 
   // Close modals
@@ -93,15 +95,17 @@ window.addEventListener("DOMContentLoaded", () => {
     document.body.classList.remove('no-overflow');
 
     let tl = new TimelineMax();
-    tl.to(content, {duration: 0.2, y: -50, opacity: 0, ease: "power0.ease"});
-    tl.to(modal_close, {duration: 0.2, y: -50, opacity: 0, ease: "power0.ease"});
-    tl.to(modal, {duration: 0.2, y: -50, opacity: 0, ease: "power0.ease"});
-    
-    if (modal.classList.contains('video-modal')) {
-      let video = modal.querySelector('video');
-      video.setAttribute('controls', '');
-      video.pause();
-    }
+    tl.to(content, {duration: 0.2, y: -50, opacity: 0, ease: "Quint.easeInOut", onComplete: pause_video, });
+    tl.to(modal_close, {duration: 0.2, y: -50, opacity: 0, ease: "Quint.easeInOut"});
+    tl.to(modal, {duration: 0.2, y: -50, opacity: 0, ease: "Quint.easeInOut"});
+		
+		function pause_video() {
+			if (modal.classList.contains('video-modal')) {
+				let video = modal.querySelector('video');
+				video.setAttribute('controls', '');
+				video.pause();
+			}
+		}
   }
 
   // Animate text when in view
@@ -114,16 +118,18 @@ window.addEventListener("DOMContentLoaded", () => {
     let header = document.getElementById('shopify-section-header').getBoundingClientRect().height;
     let contentWrap = document.querySelector('#home-section-two').getBoundingClientRect().top;
 
-    let text = document.querySelectorAll('.js-animating-text');
-    let first = document.querySelector('#home-section-one .js-animating-text');
+    let text = Array.from(document.querySelectorAll('.js-animating-text'));
+    // let first = Array.fromdocument.querySelector('#home-section-one .js-animating-text');
     let current = null;
     let full_item = null;
+
+		let remove_first = text.shift();
 
     text.forEach( item => {
       if ((midViewport - topViewport) > (header + item.getBoundingClientRect().top)) {
         // cancelAnimationFrame(content_inview);
         full_item = item;
-        current = '#' + item.id;
+				current = '#' + item.id;
 
         if ( ! full_item.classList.contains('has-been-animated')) {
           var tl = gsap.timeline(), 
@@ -152,11 +158,14 @@ window.addEventListener("DOMContentLoaded", () => {
   // Bring in Hero Text - on load
   function hero_animated_text() {
     let item = document.querySelector('#home-section-one .js-animating-text');
+    var tl = gsap.timeline(), 
+    mySplitText = new SplitText(item, {type:"words,chars"}), 
+    chars = mySplitText.chars;
     item.style.opacity = 1;
 
-    gsap.set(current, {perspective: 400});
+    gsap.set(item, {perspective: 400});
     tl.from(chars, {duration: 0.8, opacity:0, scale:0, y:80, rotationX:180, transformOrigin:"0% 50% -50",  ease:"back", stagger: 0.1}, "+=0");
-    full_item.classList.add('has-been-animated');
+    item.classList.add('has-been-animated');
   }
   hero_animated_text();
 
@@ -235,7 +244,236 @@ window.addEventListener("DOMContentLoaded", () => {
 //     }
 //   }
 //   xhr.send();
+
+	class bwsSingleSlider {
+		constructor(settings) {
+			this.section = document.getElementById(settings.section);
+			this.id = document.getElementById(settings.id);
+			this.prev_arrow = this.section.querySelector('.prev');
+			this.next_arrow = this.section.querySelector('.next');
+		}
+
+		_init() {
+			let slider= this.id;
+			let get_slides = Array.from(this.id.childNodes);
+			let slides = get_slides.filter( (item) => { return item.classList != undefined} );
+			let current;
+			
+			slider.style.width = ((slides.length) * 100) + '%';
+			slider.style.transform = `translate3d(0, 0, 0)`;
+
+			slides.forEach( (slide, index) => {
+				slide.setAttribute('data-slide', index);
+				slide.style.width = '100%';
+
+				if (slide.classList != undefined && slide.classList.contains('active')) {
+					current = index;
+				}
+
+				if (index != 0) {
+					gsap.to(slide, {duration: 0, x: '100%'});
+				}
+			});
+
+			function current_slide(slider_id) {
+				let slides = Array.from(document.querySelectorAll('#' + slider_id.id + ' li'));
+				let active = null;
+
+				for (let a = 0; a < slides.length; a++) {
+					if (slides[a].classList.contains('active')) {
+						active = a;
+					}
+				}
+				return active;
+			}
+
+			function slide_info(slider_id) {
+				let t = slider_id.style.transform;
+				t = t.split(',');
+				t = t[0].split('(');
+				t = t[1].substring(0, t[1].length - 2);
+
+				let slides = slider_id.querySelectorAll('li');
+
+				let slide_width = slides[1].style.width;
+				slide_width = slide_width.substring(0, slide_width.length - 1);
+
+				let slide_margin_left = slides[1].style.marginLeft; 
+
+				let return_array = new Array();
+				return_array.push(slide_margin_left, slide_width, slides);
+				return return_array;
+			}
+
+			this.next_arrow.addEventListener('click', (event) => {
+				event.preventDefault();
+				let current = current_slide(this.id);
+				
+				// Disable Arrow
+				if (current == slides.length - 2) {
+					event.target.classList.add('disabled-arrow');
+				} else {
+					event.target.classList.remove('disabled-arrow');
+				}
+
+				if (current >= 0) {
+					this.prev_arrow.classList.remove('disabled-arrow');
+				} else  {
+					this.prev_arrow.classList.add('disabled-arrow');
+				}
+
+				if (current < slides.length - 1) {
+					current += 1;
+
+					let slide_information = slide_info(this.id);
+					let slide_width = slide_information[1];
+					let slide_margin_left = slide_information[0];
+					let slides = slide_information[2];
+
+					slides[current];
+					let all_slides = document.querySelectorAll('#' + this.id.id + ' li');
+
+					all_slides.forEach( (slide, index) => {
+						slide.classList.remove('active');
+					});
+
+					for (let a = 0; a < all_slides.length; a++) {
+						if (a == current) {
+							gsap.to(all_slides[a], {duration: 0.8, opacity: 1, x: '0%', ease: "Quint.easeInOut"});
+						}
+
+						if (a < current) {
+							gsap.to(all_slides[a], {duration: 0.8, opacity: 0, x: '-50%', ease: "Quint.easeInOut"});
+						} 
+
+						if (a > current) {
+							gsap.to(all_slides[a], {duration: 0.8, opacity: 0, x: '50%', ease: "Quint.easeInOut"});
+						} 
+					}
+					slides[current].classList.add('active');
+
+					let i = parseFloat((Number(slide_width)) / (slides.length) * current, 2);
+					let slider_current = '#' + this.id.id;
+					gsap.to(slider_current, {duration: 0.8, x: -i + '%', ease: "Quint.easeInOut"});
+				} else {
+					// event.target.classList.add('disabled-arrow');
+				}
+			});
+
+			this.prev_arrow.addEventListener('click', (event) => {
+				event.preventDefault();
+
+				let current = current_slide(this.id);
+
+				// Disable Arrow
+				if (current <= slides.length - 1) {
+					this.next_arrow.classList.remove('disabled-arrow');
+				} else {
+					this.next_arrow.classList.add('disabled-arrow');
+				}
+
+				if (current > 1) {
+					this.prev_arrow.classList.remove('disabled-arrow');
+				} else if (current == 1){
+					this.prev_arrow.classList.add('disabled-arrow');
+				}
+
+				if (current >= 0 ) {
+					if (current != 0) {
+						current -= 1;
+					}
+					
+					let slide_information = slide_info(this.id);
+					let slide_width = slide_information[1];
+					let slide_margin_left = slide_information[0];
+					let slides = slide_information[2];
+					slides[current];
+					slides.forEach( (slide, index) => {
+						slide.classList.remove('active');
+					});
+					slides[current].classList.add('active');
+
+					let all_slides = document.querySelectorAll('#' + this.id.id + ' li');
+
+					all_slides.forEach( (slide, index) => {
+						slide.classList.remove('active');
+					});
+					slides[current].classList.add('active');
+
+					for (let a = 0; a < all_slides.length; a++) {
+						if (a == current) {
+							gsap.to(all_slides[a], {duration: 0.8, opacity: 1, x: 0, ease: "Quint.easeInOut"});
+						}
+
+						if (a > current) {
+							gsap.to(all_slides[a], {duration: 0.8, opacity: 0, x: '50%', ease: "Quint.easeInOut"});
+						} 
+
+						if (a < current) {
+							gsap.to(all_slides[a], {duration: 0.8, opacity: 0, x: '-50%', ease: "Quint.easeInOut"});
+						} 
+					}
+
+					let i = parseFloat((Number(slide_width)) / (slides.length) * current, 2);
+					let slider_current = '#' + this.id.id;
+					gsap.to(slider_current, {duration: 1, x: -i + '%', ease: "Quint.easeInOut"});
+				} else {
+					return;
+				}
+			});
+		}
+	}
+	let slider_one = new bwsSingleSlider({
+		'section': 'home-section-six',
+		'id': 'slider-single',
+	});
+	slider_one._init();
+
+	
 });
+
+$( document ).ready(function() {
+	$('#contact_form').submit(function(event) {
+		event.preventDefault();
+		let current = this;
+		
+			var $form = $(this);
+			console.log(event, this);
+			jQuery.ajax({
+				type: 'POST',
+				async: true,
+				// async: false,
+				url: '/contact',
+				data: $form.serialize(),
+				beforeSend: function() {
+					$form.addClass('sending');
+				},
+				error: function(t) {
+					console.log(t);
+				},
+				success: function(response) {
+					console.log('success blah');
+					console.log($form.target, event.target);
+					// let success = $form[0].parentElement.parentElement.parentElement.parentElement;
+					// let success_row = success.querySelector('.successMsg');
+					// let success_children = success_row.childNodes[1];
+					// console.log(success_children, $form,success_row, success);
+					// console.log(success_children,success_children.clientHeight,  success_children.style, success_children.parentElement);
+					// let item_height = success_children.clientHeight + 40;
+					
+					// $form[0].classList.add('transitioning-out');
+					
+					// let t1 = new TimelineMax();
+					// t1.to($form, {duration: 0.4, y: -20, ease: "power0.ease", opacity: 0});
+					// t1.to($form, {duration: 0.4, ease: "power0.ease", height: 0});
+					
+					// gsap.to(success_row, {delay: 0.2, duration: 0.4, ease: "power0.ease", height: item_height,y: 0, opacity: 1,});
+	
+				}
+			});
+			event.preventDefault();
+	})
+})
 
 // ===========================================
 // Greensock - SplitText / strings

@@ -249,10 +249,12 @@ footer {
   @include justify-content(flex-end);
 
   li {
-    width: 60px;
+    max-width: 60px;
+    width: 100%;
     border: 1px solid $color-dark;
     border-radius: 50%;
-    height: 60px;
+    max-height: 60px;
+    height: auto;
 
     @include flexbox();
     @include align-items(center);
@@ -261,10 +263,18 @@ footer {
   }
 
   li {
-    margin-right: 30px;
+    margin-right: 2vw;
+
+    &.icon-facebook a {
+      padding: 30px;
+    }
 
     &:last-of-type {
       margin-right: 0;
+    }
+
+    a {
+      padding: 20px;
     }
   }
 
@@ -318,10 +328,84 @@ footer {
 section video {
   position: relative;
   width: 100%;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .no-overflow {
   overflow: hidden;
+}
+
+// BWS Single Slider
+.slider-single {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(flex-start);
+  
+  li {
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(center);
+    @include flex-direction(column);
+
+    h4 {
+      text-align: center;
+      font-family: $hnpr;
+      font-weight: 400;
+      text-transform: none;
+      font-style: italic;
+      margin-bottom: 32px;
+      line-height: 1.33em;
+    }
+
+    img {
+      max-width: 90px;
+    }
+
+    .x-large {
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      margin-top: 5px;
+    }
+
+    .subtitle {
+      font-weight: 700;
+    }
+  }
+}
+
+.arrow-column {
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
+}
+
+.slider-column[class^=col-] {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.arrow {
+  position: relative;
+  z-index: 2;
+
+  @include transition(400ms all $cubic);
+
+  svg {
+    pointer-events: none;
+  }
+
+  &.disabled-arrow {
+    opacity: 0.3;
+    pointer-events: none;
+  }
 }
 
 @media all and (min-width: 1025px) {

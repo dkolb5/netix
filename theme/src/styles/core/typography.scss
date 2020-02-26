@@ -64,7 +64,7 @@ a:focus {
 
 @font-face {
   font-family: 'Helvetica-Neue-Pro-Roman';
-  src: url('~/assets/HelveticaNeueLTPro-Roman.otf');
+  src: url("{{ 'HelveticaNeueLTPro-Roman.otf' | asset_url }}");
   font-weight: bold;
   font-style: normal;
 }
@@ -117,4 +117,9 @@ h4 {
   margin-top: 0;
   text-transform: uppercase;
   font-weight: 700;
+}
+
+p.x-large {
+  font-size: 1.25em;
+  line-height: 1.3em;
 }

@@ -1,5 +1,10 @@
 <section class="bg-dark light-text" id="home-section-one">
-  <div class="absolute-background" style="background:url('https://cdn.shopify.com/s/files/1/0333/5084/4552/files/home_hero.jpg?v=1582316213') no-repeat center center; background-size: cover;"></div></div>
+  <!-- <div class="absolute-background" style="background:url('https://cdn.shopify.com/s/files/1/0333/5084/4552/files/home_hero.jpg?v=1582316213') no-repeat center center; background-size: cover;"> -->
+  <div class="absolute-background">
+    <video name="media-one" autoplay loop>
+      <source src="{{ 'loop-adjusted.mp4' | asset_url }}" type="video/mp4">
+    </video>
+  </div>
   <div class="row spacing-top-lg spacing-bottom-sm">
     <div class="col-lg-7 col-lg-offset-1 col-md-7 col-md-offset-1 col-sm-7 col-sm-offset-1 col-xs-7 col-xs-offset-1">
       <p class="hero-copy">the only</p>
@@ -157,13 +162,45 @@
 </section>
 
 <!-- <section class="bg-gray spacing-top-and-bottom-md" id="home-section-five"> -->
-<section class="bg-gray" id="home-section-five">
+<section class="bg-gray spacing-top-and-bottom-md" id="home-section-six">
   <div class="row">
-
+    <div class="col-lg-1 col-lg-offset-1 col-md-1 col-md-offset-1 col-sm-1 col-sm-offset-1 col-xs-1 col-xs-offset-1 arrow-column">
+      <a href="#" class="arrow prev disabled-arrow">
+        {% include  'icon-left-arrow-dark' %}
+      </a>
+    </div>
+    <div class="col-lg-6 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1 col-xs-6 col-xs-offset-1 slider-column">
+      <ul class="slider-single" id="slider-single">
+        <li class="active">
+          <h4>“One As both a gym owner and professional athlete, I really appreciate how NETIX keeps your gym gear close by, without cluttering-up a training space. The added convenience of both the built in mobile pocket, and easy storage accessibility, makes this bag stand above the normal gym bags of yesterday.”</h3>
+          <img src="https://cdn.shopify.com/s/files/1/0333/5084/4552/files/avatar.png?v=1582736073" alt="">
+          <p class="x-large">Gabriel Peña</p>
+          <p class="subtitle">Professional Strongman & Gym Owner</p>
+        </li>
+        <li>
+          <h4>“Two As both a gym owner and professional athlete, I really appreciate how NETIX keeps your gym gear close by, without cluttering-up a training space. The added convenience of both the built in mobile pocket, and easy storage accessibility, makes this bag stand above the normal gym bags of yesterday.”</h3>
+            <img src="https://cdn.shopify.com/s/files/1/0333/5084/4552/files/avatar.png?v=1582736073" alt="">
+            <p class="x-large">Gabriel Peña</p>
+            <p class="subtitle">Professional Strongman & Gym Owner</p>
+        </li>
+        <li>
+          <h4>“Three As both a gym owner and professional athlete, I really appreciate how NETIX keeps your gym gear close by, without cluttering-up a training space. The added convenience of both the built in mobile pocket, and easy storage accessibility, makes this bag stand above the normal gym bags of yesterday.”</h3>
+            <img src="https://cdn.shopify.com/s/files/1/0333/5084/4552/files/avatar.png?v=1582736073" alt="">
+            <p class="x-large">Gabriel Peña</p>
+            <p class="subtitle">Professional Strongman & Gym Owner</p>
+        </li>
+      </ul>
+      
+    </div>
+    <div class="col-lg-1 col-lg-offset-1 col-md-1 col-md-offset-1 col-sm-1 col-sm-offset-1 col-xs-1 col-xs-offset-1 right-arrow-column arrow-column">
+      <a href="#" class="arrow next">
+        {% include  'icon-right-arrow-dark' %}
+      </a>
+    </div>
   </div>
 </section>
 
-<section class="bg-dark spacing-top-and-bottom-lg light-text cta-one" id="home-section-six">
+<section class="bg-dark spacing-top-and-bottom-lg light-text cta-one" id="home-section-seven">
   <div class="absolute-background" style="background: url('https://cdn.shopify.com/s/files/1/0333/5084/4552/files/cta_bg.jpg?v=1582568899') no-repeat center center; background-size: cover;"></div>
   <div class="row center-xs">
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-10">
@@ -189,7 +226,8 @@
   </div>
   <div class="row center-xs content">
     <div class="col-xs-10 video-wrapper">
-      <video name="media" poster="{{ 'video_preview_placeholder.jpg' | asset_url }}"><source src="{{ 'placeholder_video.mp4' | asset_url }}" type="video/mp4"></video>
+      <!-- <video name="media" poster="{{ 'video_preview_placeholder.jpg' | asset_url }}"><source src="{{ 'promo-video.mov' | asset_url }}" type="video/mov"></video> -->
+      <video name="media" poster="" src="{{ 'promo-video.mov' | asset_url }}" type="video/mov"></video>
     </div>
   </div>
 </section>
