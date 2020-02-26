@@ -13,6 +13,9 @@ import '../../styles/theme.scss.liquid';
 // import '../../assets/SplitText.js';
 // import '../../assets/utils/strings.js';
 // import '../sections/pages';
+import '../../assets/gsap.min.js';
+import '../../assets/ScrollToPlugin.min.js';
+import '../sections/pages';
 
 import {focusHash, bindInPageLinks} from '@shopify/theme-a11y';
 import {cookiesEnabled} from '@shopify/theme-cart';
