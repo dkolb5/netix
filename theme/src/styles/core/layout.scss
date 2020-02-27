@@ -151,6 +151,10 @@ Spacings
   margin-right: 8.333%;
 }
 
+.mr-col-3 {
+  margin-right: 24.333%;
+}
+
 footer {
   #footer-section-one {
     padding-top: 100px;
@@ -215,8 +219,14 @@ footer {
     
   }
 
-  .logo-list li:first-of-type {
-    max-width: 100px;
+  .logo-list {
+    li:first-of-type {
+      max-width: 100px;
+    }
+
+    img {
+      max-width: 100px;
+    }
   }
 }
 
@@ -358,7 +368,6 @@ section video {
     h4 {
       text-align: center;
       font-family: $hnpr;
-      font-weight: 400;
       text-transform: none;
       font-style: italic;
       margin-bottom: 32px;
@@ -367,6 +376,11 @@ section video {
 
     img {
       max-width: 90px;
+    }
+
+    h4,
+    p {
+      font-weight: 500;
     }
 
     .x-large {
@@ -378,6 +392,7 @@ section video {
     .subtitle {
       font-weight: 500;
       text-transform: none;
+      font-family: $hnpr;
     }
   }
 }

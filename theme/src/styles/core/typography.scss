@@ -22,7 +22,8 @@ h5,
 h6 {
   // font-family: $font-heading;
   font-family: $age;
-  font-weight: 700;
+  // font-weight: 700;
+  font-weight: 500;
   margin-top: 0;
 }
 
@@ -38,6 +39,7 @@ select {
 main p {
   margin-top: 0;
   margin-bottom: 1.25em;
+  font-weight: 500;
 }
 
 a:focus {
@@ -107,7 +109,7 @@ h4 {
   line-height: 1.25em;
   text-transform: uppercase;
   font-family: $age;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .ninety {

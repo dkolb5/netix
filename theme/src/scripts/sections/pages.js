@@ -220,26 +220,26 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 
 	// Button Hovers
-	let video_buttons = document.querySelectorAll('.circle-button');
-	video_buttons.forEach(button => {
+	// let video_buttons = document.querySelectorAll('.circle-button');
+	// video_buttons.forEach(button => {
 		
-		button.addEventListener('mousemove', (event) => {
-			let inner = event.target.querySelector('.inner-circle');
-			let inner_rect = inner.getBoundingClientRect();	
-			let moveX = event.clientX - (inner_rect.left) - (inner_rect.width / 2);
-			let moveY = (event.clientY - (inner_rect.top) - inner_rect.height / 2);
-			let skewX = event.movementX * 2.1;
-			let skewY = event.movementY * 2.1;
+	// 	button.addEventListener('mousemove', (event) => {
+	// 		let inner = event.target.querySelector('.inner-circle');
+	// 		let inner_rect = inner.getBoundingClientRect();	
+	// 		let moveX = event.clientX - (inner_rect.left) - (inner_rect.width / 2);
+	// 		let moveY = (event.clientY - (inner_rect.top) - inner_rect.height / 2);
+	// 		let skewX = event.movementX * 2.1;
+	// 		let skewY = event.movementY * 2.1;
 
-			gsap.to(inner, {duration: 0.1, skewX: skewX, skewY: skewY, transformOrigin: "center", ease: "Quint.easeInOut", x: moveX, y: moveY});
-		});
+	// 		gsap.to(inner, {duration: 0.1, skewX: skewX, skewY: skewY, transformOrigin: "center", ease: "Quint.easeInOut", x: moveX, y: moveY});
+	// 	});
 
-		button.addEventListener('mouseout', (event) => {
-			let inner = event.target.querySelector('.inner-circle');
-			let inner_rect = inner.getBoundingClientRect();
-			gsap.to(inner, {duration: 0.2, ease: "Quint.easeInOut", skewX: 0, skewY: 0, x: 0, y: 0});
-		});
-	})
+	// 	button.addEventListener('mouseout', (event) => {
+	// 		let inner = event.target.querySelector('.inner-circle');
+	// 		let inner_rect = inner.getBoundingClientRect();
+	// 		gsap.to(inner, {duration: 0.2, ease: "Quint.easeInOut", skewX: 0, skewY: 0, x: 0, y: 0});
+	// 	});
+	// })
 
 	class bwsSingleSlider {
 		constructor(settings) {

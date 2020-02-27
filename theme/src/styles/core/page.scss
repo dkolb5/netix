@@ -1,10 +1,12 @@
 .hero-copy {
-  font-size: 9vw;
-  line-height: 9vw;
+  // font-size: 9vw;
+  // line-height: 9vw;
+  font-size: 7vw;
+  line-height: 7vw;
   text-transform: uppercase;
   color: $color-white;
   font-family: $age;
-  font-weight: 700;
+  font-weight: 500;
   margin: 0;
 
   &.bottom {
@@ -31,9 +33,14 @@
     // opacity: 0.5;
   }
 
+  .subtitle {
+    font-weight: 700;
+  }
+
   img {
-    max-width: 85%;
+    max-width: 100px;
     opacity: 0.5;
+    margin: auto;
   }
 
   .bottom-home {
@@ -47,9 +54,13 @@
   }
 
   .button-wrapper {
-    bottom: 100%;
+    // bottom: 100%;
+    // bottom: 60%;
     position: absolute;
-    left: 60%;
+    // left: 60%;
+    bottom: -20px;
+    position: absolute;
+    left: 10%;
   }
 }
 
@@ -78,12 +89,17 @@
   overflow: hidden;
   position: relative;
 
-  .mr-col-1 + img {
+  .mr-col-3 + img {
     margin-top: 65px;
   }
 
   .bg-gray-behind::before {
-    top: 50%;
+    // top: 50%;
+    top: 66%;
+  }
+
+  .adjust-offset[class^=col-] {
+    margin-left: 12.333%;
   }
 }
 
@@ -106,6 +122,7 @@
         text-transform: uppercase;
         color: $color-orange;
         font-family: $age;
+        font-weight: 500;
       }
 
       .current::before {
@@ -124,6 +141,10 @@
     margin-bottom: 0;
   }
 
+  .row {
+    background-size: 90%;
+  }
+
   .ninety {
     line-height: 1em;
   }
@@ -134,7 +155,7 @@
   }
 
   .subtitle {
-    font-weight: 400;
+    font-weight: 500;
     margin-bottom: 30px;
   }
 
@@ -168,6 +189,7 @@
     &:not(.hero-copy) {
       margin-top: 18px;
       margin-bottom: 25px;
+      font-family: $hnpr;
     }
   }
 }
@@ -184,11 +206,6 @@
   .message p {
     margin-bottom: 35px;
   }
-}
-
-.js-animating-text {
-  // opacity: 0;
-  // @include transform(scale(0));
 }
 
 @media all and (min-width: 1024px) {
