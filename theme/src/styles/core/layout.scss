@@ -175,8 +175,12 @@ footer {
 
     p {
       margin: 0;
-      font-family: $hnpr;
+      font-family: $age;
       font-weight: 500;
+    }
+
+    a {
+      font-family: $hnpr;
     }
 
     li:first-of-type p:first-of-type {
@@ -218,6 +222,10 @@ footer {
   .regular-menu {
     margin-top: 0;
     margin-bottom: 0;
+
+    a {
+      font-family: $hnpr;
+    }
     
   }
 
@@ -279,6 +287,17 @@ footer {
 
     &.icon-facebook a {
       padding: 30px;
+
+      svg {
+        position: relative;
+        top: 2px;
+      }
+    }
+
+    &.icon-instagram svg,
+    &.icon-twitter svg {
+      position: relative;
+      top: -2px;
     }
 
     &:last-of-type {
@@ -288,6 +307,19 @@ footer {
     a {
       padding: 20px;
     }
+
+    &:hover {
+      background: $color-dark;
+
+      svg path {
+        fill: $color-white;
+      }
+    }
+  }
+
+  svg,
+  li {
+    @include transition(400ms all $cubic);
   }
 
   svg path {
@@ -423,6 +455,14 @@ section video {
   &.disabled-arrow {
     opacity: 0.3;
     pointer-events: none;
+  }
+
+  &.prev:hover {
+    @include transform(translate(-5px, 0));
+  }
+
+  &.next:hover {
+    @include transform(translate(5px, 0));
   }
 }
 

@@ -157,6 +157,7 @@ body#get-on-the-list {
 
   .ninety {
     line-height: 1em;
+    font-weight: 500;
   }
 
   p:not(.ninety) {
@@ -330,6 +331,7 @@ body#get-on-the-list {
     font-family: $age;
     font-weight: 500;
     text-transform: uppercase;
+    margin-bottom: 0;
   }
 }
 

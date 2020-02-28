@@ -28,6 +28,13 @@ header .navigation-menu ul {
       border-radius: 30px;
       font-size: 0.875em;
       padding: 21.5px 30px;
+
+      @include transition(400ms all $cubic);
+
+      &:hover {
+        background: $color-orange;
+        border: 1px solid $color-orange;
+      }
     }
   }
 }
@@ -38,6 +45,12 @@ body.template-index header .navigation-menu ul a {
 
   &.cta-link {
     border: 1px solid $color-white;
+
+    &:hover {
+      box-shadow: 0 20px 60px 0 rgba(150, 150, 150, 0.15);
+      background: $color-orange;
+      border: 1px solid $color-orange;
+    }
   }
 }
 

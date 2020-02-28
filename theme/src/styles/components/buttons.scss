@@ -51,6 +51,16 @@ a {
     }
   }
 
+  &.orange:hover {
+    box-shadow: 0 20px 60px 0 rgba(150, 150, 150, 0.15);
+    background: $color-orange-hover;
+  
+    .inner-circle {
+      box-shadow: none;
+      background: $color-orange;
+    }
+  }
+
   &.video-button-2 {
     width: 100%;
     height: 100%;
@@ -120,10 +130,12 @@ a {
     }
 
     &.white:hover {
-      box-shadow: none;
+      box-shadow: 0 20px 60px 0 rgba(150, 150, 150, 0.15);
+      background: $color-orange-hover;
     
       .inner-circle {
         background: $color-orange;
+        box-shadow: none;
 
         svg polygon {
           fill: $color-white;
@@ -171,7 +183,13 @@ a {
     }
 
     &:hover {
-      background: $color-white;
+      background: $color-orange-hover;
+      box-shadow: 0 20px 60px 0 rgba(150, 150, 150, 0.15);
+
+      .inner-wrapper,
+      .inner-circle {
+        box-shadow: none;
+      }
     }
   }
 
@@ -185,6 +203,10 @@ a {
   }
 }
 
+.button-wrapper .regular-button.orange:hover .inner-wrapper {
+  background: $color-orange-hover;
+}
+
 .circle-button,
 .circle-button .inner-circle,
 .circle-button .inner-circle .text {
@@ -196,9 +218,15 @@ a {
 // Regular button
 .regular-button {
   padding: 10px;
+  overflow: hidden;
+
+  @include transition(400ms all $cubic);
 
   .inner-wrapper {
     padding: 17.5px 62px;
+    transform-origin: center;
+
+    @include transition(400ms all $cubic);
   }
 
   .text {
@@ -214,9 +242,27 @@ a {
   border-radius: 40px;
 }
 
-.arrow-button h3 {
-  color: $color-dark;
-  font-weight: 500;
+.arrow-button {
+  h3 {
+    color: $color-dark;
+    font-weight: 500;
+    font-size: 3.15vw;
+  }
+
+  h3,
+  svg {
+    @include transition(400ms all $cubic);
+  }
+
+  &:hover {
+    h3 {
+      color: $color-orange;
+    }
+
+    svg {
+      @include transform(translate(20px, 0));
+    }
+  }
 }
 
 .double-line-hover {
