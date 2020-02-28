@@ -259,7 +259,9 @@ body#get-on-the-list {
 
   .about-hero-image {
     position: relative;
-    top: 6vw;
+    // top: 6vw;
+    padding-top: 8vw;
+    top: 7vw;
 
     .button-wrapper,
     .button-wrapper .circle-button.video-button {
