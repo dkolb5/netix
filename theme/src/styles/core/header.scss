@@ -19,16 +19,25 @@ header .navigation-menu ul {
 
   a {
     text-transform: uppercase;
-    color: $color-white;
+    color: $color-dark;
     font-size: 0.75em;
     font-weight: 700;
 
     &.cta-link {
-      border: 1px solid $color-white;
+      border: 1px solid $color-dark;
       border-radius: 30px;
       font-size: 0.875em;
       padding: 21.5px 30px;
     }
+  }
+}
+
+// home - liquid conditional were being weird
+body.template-index header .navigation-menu ul a {
+  color: $color-white;
+
+  &.cta-link {
+    border: 1px solid $color-white;
   }
 }
 
@@ -41,10 +50,15 @@ header .navigation-menu ul {
 }
 
 #shopify-section-header.sticky {
-  background: $color-dark;
-  box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.05);
+  background: $color-white;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
 
   #main-navigation {
     @include transform(translate(0px, -15px));
   }
+}
+
+body.template-index #shopify-section-header.sticky {
+  background: $color-dark;
+  box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.05);
 }

@@ -6,7 +6,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
     
     section_four.forEach( row => {
       row.querySelector('.count .total').innerHTML = '0' + section_four_total;
-    });
+		});
+		
+		// document.addEventListener('scroll', content_inview);
   }
 
   // Change header to be sticky
@@ -51,7 +53,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   });
 
   function open_modal(event) {
-    event.preventDefault();
+		event.preventDefault();
 
     let video = null;
     let modal_id = event.target.dataset.modal;
@@ -146,9 +148,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
     });
   }
 
-  
-  document.addEventListener('scroll', content_inview);
-
   // Hide Animated Text
   let text = document.querySelectorAll('.js-animating-text');
   text.forEach( item => {
@@ -166,8 +165,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
     gsap.set(item, {perspective: 400});
     tl.from(chars, {duration: 0.8, opacity:0, scale:0, y:80, rotationX:180, transformOrigin:"0% 50% -50",  ease:"back", stagger: 0.1}, "+=0");
     item.classList.add('has-been-animated');
-  }
-  hero_animated_text();
+	}
+	
+	if (document.body.classList.contains('template-index')) {
+		hero_animated_text();
+	}
 
   function gasp_text(class_name) {
     var tl = gsap.timeline(), 
@@ -419,11 +421,15 @@ window.addEventListener("DOMContentLoaded", (event) => {
 			});
 		}
 	}
-	let slider_one = new bwsSingleSlider({
-		'section': 'home-section-six',
-		'id': 'slider-single',
-	});
-	slider_one._init();
+
+	// Home Slider
+	if (document.body.classList.contains('template-index')) {
+		let slider_one = new bwsSingleSlider({
+			'section': 'home-section-six',
+			'id': 'slider-single',
+		});
+		slider_one._init();
+	}
 	
 	
 });

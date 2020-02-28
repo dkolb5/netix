@@ -82,16 +82,16 @@ Spacings
 }
 
 .spacing-top-xl {
-  padding-top: 208px;
+  padding-top: 200px;
 }
 
 .spacing-bottom-xl {
-  padding-bottom: 208px;
+  padding-bottom: 200px;
 }
 
 .spacing-top-and-bottom-xl {
-  padding-top: 208px;
-  padding-bottom: 208px;
+  padding-top: 200px;
+  padding-bottom: 200px;
 }
 
 .spacing-top-lg {
@@ -175,6 +175,8 @@ footer {
 
     p {
       margin: 0;
+      font-family: $hnpr;
+      font-weight: 500;
     }
 
     li:first-of-type p:first-of-type {
@@ -421,6 +423,17 @@ section video {
   &.disabled-arrow {
     opacity: 0.3;
     pointer-events: none;
+  }
+}
+
+// Hide nav links
+body {
+  &#privacy-policy,
+  &#terms-and-conditions {
+    header nav.navigation-menu {
+      display: none;
+      visibility: hidden;
+    }
   }
 }
 

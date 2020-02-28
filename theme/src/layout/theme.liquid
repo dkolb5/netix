@@ -44,7 +44,7 @@
         unavailable: {{ 'products.product.unavailable' | t | json }}
       },
       moneyFormat: {{ shop.money_format | json }}
-    };
+    }
   </script>
 
   {% include 'script-tags', layout: 'theme' %}
@@ -56,21 +56,25 @@
 
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
-  {% if page.title | downcase != 'get on the list' %}
-    {% comment %} Don\t display the header {% endcomment %}
+  {% if page.id == 52343799945 or page.id == 52393476232 %}
+    <header></header>
   {% else %}
-    {% section 'header' %}
+    {% section 'header' %}    
   {% endif %}
+  
 
   <main role="main" id="MainContent">
     {{ content_for_layout }}
   </main>
 
-  {% if page.title | downcase != 'get on the list' %}
-    {% comment %} Don\t display the footer {% endcomment %}
+  
+  {% if page.id == 52343799945 or page.id == 52393476232 %}
+    <footer></footer>
   {% else %}
     {% section 'footer' %}
   {% endif %}
+  
+  
 
   {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' | script_tag }}
   
