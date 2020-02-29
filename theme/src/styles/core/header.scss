@@ -5,11 +5,14 @@
   top: 0;
   z-index: 5;
 
-  @include transition(400ms all $cubic);
+  transition-delay: 0ms;
+  transition-duration: 400ms;
+  transition-timing-function: $cubic;
 
   #main-navigation {
-    // @include transform(translate(0px, -15px));
-    @include transition(400ms all $cubic);
+    transition-delay: 0ms;
+    transition-duration: 400ms;
+    transition-timing-function: $cubic;
   }
 }
 
@@ -23,17 +26,24 @@ header .navigation-menu ul {
     font-size: 0.75em;
     font-weight: 700;
 
+    &.single-line-hover.white::before {
+      background: $color-dark;
+    }
+
     &.cta-link {
       border: 1px solid $color-dark;
       border-radius: 30px;
       font-size: 0.875em;
       padding: 21.5px 30px;
 
-      @include transition(400ms all $cubic);
+      // @include transition(400ms all $cubic);
+      transition-duration: 400ms;
+      transition-duration: 400ms;
 
       &:hover {
         background: $color-orange;
         border: 1px solid $color-orange;
+        color: $color-white;
       }
     }
   }
@@ -42,6 +52,10 @@ header .navigation-menu ul {
 // home - liquid conditional were being weird
 body.template-index header .navigation-menu ul a {
   color: $color-white;
+
+  &.single-line-hover.white::before {
+    background: $color-white;
+  }
 
   &.cta-link {
     border: 1px solid $color-white;
@@ -58,10 +72,6 @@ body.template-index header .navigation-menu ul a {
   padding-top: 30px;
 }
 
-#main-navigation {
-  margin-right: 16.333%;
-}
-
 #shopify-section-header.sticky {
   background: $color-white;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
@@ -74,4 +84,158 @@ body.template-index header .navigation-menu ul a {
 body.template-index #shopify-section-header.sticky {
   background: $color-dark;
   box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.05);
+}
+
+@media screen and (min-width: 1025px) {
+  .mobile-link {
+    display: none;
+    visibility: hidden;
+  }
+
+  #main-navigation {
+    margin-right: 16.333%;
+  
+    li:first-of-type {
+      margin-right: 50px;
+    }
+  }
+}
+#header-section-one .row.mobile-link {
+  padding-top: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  @include transform(translate(100%, 0));
+  
+  a {
+    @include transform(translate(100%, 40px));
+
+    transition-delay: 0ms;
+    transition-duration: 400ms;
+    transition-timing-function: $cubic;
+  }
+
+}
+
+body.template-index header .mobile-link .cta-link,
+body header .mobile-link .cta-link {
+  height: 50px;
+  border-radius: 0;
+  background: $color-orange;
+  border: 1px solid $color-orange;
+  color: $color-white;
+  padding: 9px 30px;
+  text-transform: uppercase;
+  font-family: $age;
+  font-size: 0.6875em;
+
+  @include inline-flex();
+}
+
+@media screen and (max-width: 1024px) {
+  #main-navigation {
+    padding-right: 30px;
+
+    ul {
+      margin-block-start: 0;
+    } 
+
+    .scroll-to {
+      display: none;
+      visibility: hidden;
+    }
+  }
+
+  header {
+    .bws-logo {
+      @include inline-flex();
+
+      svg {
+        height: 24px;
+      }
+    }
+
+    .bws-logo svg,
+    .bws-logo svg path {
+      transition-timing-function: $cubic;
+      transition-duration: 400ms;
+    }
+
+    .navigation-menu ul a.cta-link {
+      @include inline-flex();
+
+      position: relative;
+      padding: 9px 30px;
+      top: -2px;
+      transition-delay: 0ms;
+      transition-duration: 400ms;
+      transition-timing-function: $cubic;
+    }
+  }
+
+  #shopify-section-header.sticky {
+    transition-delay: 400ms;
+
+    @include transform(translate(0, -40px));
+
+    .bws-logo {
+      transition-delay: 400ms;
+
+      svg path {
+        fill: $color-dark;
+        transition-delay: 400ms;
+      }
+    }
+
+    #main-navigation .cta-link {
+      transition-delay: 0;
+      
+      @include transform(translate(160%, 0));
+    }
+
+    #header-section-one .row.mobile-link a {
+      transition-delay: 500ms;
+
+      @include transform(translate(-100%, 40px));
+    }
+
+    .bws-logo {
+      @include transform(translate(0, 22px));
+    }
+  }
+
+  body.template-index #shopify-section-header.sticky {
+    background: $color-white;
+    transition-delay: 400ms;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #home-section-one {
+    background: url('https://cdn.shopify.com/s/files/1/0333/5084/4552/files/mobile_home_hero.jpg?v=1582930498') no-repeat center center;
+    background-size: cover;
+
+    .absolute-background {
+      display: none;
+      visibility: hidden;
+    }
+
+    .hero-copy {
+      font-size: 11vw;
+      line-height: 11vw;
+    }
+
+    .changing-text {
+      @include flex-direction(column);
+    }
+
+    .text-wrap {
+      padding-left: 8.333%;
+    }
+
+    .bottom-home {
+      @include flex-direction(column);
+    }
+  } 
 }

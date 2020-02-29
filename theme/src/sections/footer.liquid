@@ -5,13 +5,13 @@
     <div class="row">
       <div class="col-xs-10 col-xs-offset-1">
         <div class="row">
-          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <p class="subtitle with-border">About</p>
             <a href="/pages/about" class="arrow-button">
               <h3>It all started with a crushed bag <span class="inline-icon">{% include 'icon-right-orange' %}</span></h3>
             </a>
          </div>
-         <div class="col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1 col-xs-12 col-xs-offset-0" id="footer-newsletter">
+         <div class="col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0" id="footer-newsletter">
           <p class="subtitle with-border">Newsletter</p>
 
           {% form 'contact' %}
@@ -39,7 +39,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 col-xs-12 col-xs-offset-0">
+        <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-5 col-sm-offset-1 col-xs-12 col-xs-offset-0">
           <p class="subtitle with-border">Questions?</p>
           <p>Got questions? We’ve got answers.</p>
           <ul class="contact-information">
@@ -70,7 +70,7 @@
     <div class="row middle-xs" id="subfooter">
       <div class="col-xs-10 col-xs-offset-1">
         <div class="row">
-          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <p>Copyright &copy; {{ 'now' | date: "%Y" }}, Netix</p>
             <ul class="regular-menu">
               {% for link in linklists.sub-footer-one.links %}
@@ -80,7 +80,7 @@
               {% endfor %}
             </ul>
           </div>
-          <div class="col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1 col-xs-12 col-xs-offset-0">
+          <div class="col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1 col-sm-5 col-sm-offset-1 col-xs-12 col-xs-offset-0 remove-xs-only">
             <ul class="logo-list">
               <li>
                 <p class="subtitle">Funded Through</p>
@@ -93,7 +93,7 @@
               </li>
             </ul>
           </div>
-          <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 col-xs-12 col-xs-offset-0 end-xs">
+          <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 end-lg end-md center-xs">
             <ul class="social-icons">
               <li class="icon-facebook">
                 <a href="{{ settings.social_facebook_link }}" target="_blank">
@@ -111,6 +111,16 @@
                 </a>
               </li>
             </ul>
+            <ul class="logo-list mobile-xs-only">
+              <li>
+                <img src="https://cdn.shopify.com/s/files/1/0333/5084/4552/files/indie-gogo-pink.png?v=1582592266" alt="indie-gogo-pink">
+              </li>
+              <li>
+                <img src="https://cdn.shopify.com/s/files/1/0333/5084/4552/files/patent-pending.png?v=1582592266" alt="patent pending">
+              </li>
+            </ul>
+
+
             <p>
               Website by <a href="https://buzzworthystudio.com" class="single-line-hover" target="_blank">Buzzworthy</a>
             </p>
