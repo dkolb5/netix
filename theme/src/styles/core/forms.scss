@@ -222,9 +222,11 @@ input {
 }
 
 .form-response {
+  position: relative !important;
   overflow: hidden;
   position: relative;
   height: 0;
+  display: block;
 
   @include transform(scale(0));
 

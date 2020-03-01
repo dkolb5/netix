@@ -704,7 +704,6 @@ body#get-on-the-list {
   }
 
   #about-section-one {
-    // padding-bottom: 190px;
     padding-bottom: 90px;
   }
 
@@ -761,6 +760,17 @@ body#get-on-the-list {
     // top: 80px;
     top: 0px;
   }
+
+  #legal-section-one .xx-large {
+    padding-bottom: 60px;
+  }
+
+  .arrow.next {
+    padding-right: 18px;
+  }
+  .arrow.prev {
+    padding-left: 18px;
+  }
 } // End 768 Max
 
 @media screen and (max-width: 768px) and (min-width: 577px) {
@@ -775,5 +785,9 @@ body#get-on-the-list {
   #about-section-two a {
     font-size: 5.12vw;
     line-height: 6.12vw;
+  }
+
+  .form-row.submit .regular-button {
+    max-width: 85%;
   }
 }

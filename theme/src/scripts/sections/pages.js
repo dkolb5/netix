@@ -46,69 +46,71 @@ window.addEventListener("DOMContentLoaded", (event) => {
     gsap.to(window, {duration: 0.4, scrollTo: destination, ease: "power0.ease"});
   }
 
-  // Open Modals
-  let modal_buttons = document.querySelectorAll('.bws-button[data-modal]');
-  modal_buttons.forEach( (button) => {
-    button.addEventListener('click', open_modal);
-  });
+	if (document.body.id != 'get-on-the-list') {
+		// Open Modals
+		let modal_buttons = document.querySelectorAll('.bws-button[data-modal]');
+		modal_buttons.forEach( (button) => {
+			button.addEventListener('click', open_modal);
+		});
 
-  function open_modal(event) {
-		event.preventDefault();
+		function open_modal(event) {
+			event.preventDefault();
 
-    let video = null;
-    let modal_id = event.target.dataset.modal;
-    let modal = document.getElementById(modal_id);
-    let modal_close = modal.querySelector('.close-modal')
-    let content = modal.querySelector('.content');
-		let tl = new TimelineMax();
+			let video = null;
+			let modal_id = event.target.dataset.modal;
+			let modal = document.getElementById(modal_id);
+			let modal_close = modal.querySelector('.close-modal')
+			let content = modal.querySelector('.content');
+			let tl = new TimelineMax();
 
-    modal.classList.add('active');
-    document.body.classList.add('no-overflow');
+			modal.classList.add('active');
+			document.body.classList.add('no-overflow');
 
-    tl.to(modal, {duration: 0.2, y: 0, opacity: 1, ease: "Quint.easeInOut"});
-    tl.to(modal_close, {duration: 0.4, y: 0, opacity: 1, ease: "Quint.easeInOut"});
-		tl.to(content, {duration: 0.4, y: 0, opacity: 1, ease: "Quint.easeInOut", onComplete: play_video });
+			tl.to(modal, {duration: 0.2, y: 0, opacity: 1, ease: "Quint.easeInOut"});
+			tl.to(modal_close, {duration: 0.4, y: 0, opacity: 1, ease: "Quint.easeInOut"});
+			tl.to(content, {duration: 0.4, y: 0, opacity: 1, ease: "Quint.easeInOut", onComplete: play_video });
 
-		function play_video() {
-			if (modal.classList.contains('video-modal')) {
-				let video = modal.querySelector('video');
-				video.setAttribute('controls', true);
-				video.play();
+			function play_video() {
+				if (modal.classList.contains('video-modal')) {
+					let video = modal.querySelector('video');
+					video.setAttribute('controls', true);
+					video.play();
+				}
 			}
 		}
-  }
 
-  // Close modals
-  let modal_close = document.querySelectorAll('.bws-modal .close-modal');
-  modal_close.forEach( close => {
-    close.addEventListener('click', close_modal);
-  })
+		// Close modals
+		let modal_close = document.querySelectorAll('.bws-modal .close-modal');
+		modal_close.forEach( close => {
+			close.addEventListener('click', close_modal);
+		})
 
-  function close_modal(event) {
-    event.preventDefault();
+		function close_modal(event) {
+			event.preventDefault();
 
-    let current_modal = event.target.closest('.bws-modal');
-    let video = null;
-    let modal = document.getElementById(current_modal.id);
-    let modal_close = modal.querySelector('.close-modal')
-    let content = modal.querySelector('.content');
+			let current_modal = event.target.closest('.bws-modal');
+			let video = null;
+			let modal = document.getElementById(current_modal.id);
+			let modal_close = modal.querySelector('.close-modal')
+			let content = modal.querySelector('.content');
 
-    modal.classList.remove('active');
-    document.body.classList.remove('no-overflow');
+			modal.classList.remove('active');
+			document.body.classList.remove('no-overflow');
 
-    let tl = new TimelineMax();
-    tl.to(content, {duration: 0.2, y: -50, opacity: 0, ease: "Quint.easeInOut", onComplete: pause_video, });
-    tl.to(modal_close, {duration: 0.2, y: -50, opacity: 0, ease: "Quint.easeInOut"});
-    tl.to(modal, {duration: 0.2, y: -50, opacity: 0, ease: "Quint.easeInOut"});
-		
-		function pause_video() {
-			if (modal.classList.contains('video-modal')) {
-				let video = modal.querySelector('video');
-				video.setAttribute('controls', '');
-				video.pause();
+			let tl = new TimelineMax();
+			tl.to(content, {duration: 0.2, y: -50, opacity: 0, ease: "Quint.easeInOut", onComplete: pause_video, });
+			tl.to(modal_close, {duration: 0.2, y: -50, opacity: 0, ease: "Quint.easeInOut"});
+			tl.to(modal, {duration: 0.2, y: -50, opacity: 0, ease: "Quint.easeInOut"});
+			
+			function pause_video() {
+				if (modal.classList.contains('video-modal')) {
+					let video = modal.querySelector('video');
+					video.setAttribute('controls', '');
+					video.pause();
+				}
 			}
 		}
-  }
+	}
 
   // Animate text when in view
   function content_inview() {
@@ -469,7 +471,7 @@ function success_message(form_) {
 	success.style.position = 'absolute';
 	success.style.overflow = 'visible';
 	tl.to(success, {duration: 0.4, scale: 1, ease: "Quint.easeInOut", y: -form_bounding.height - 20});
-	tl.to(success, {duration: 0.4, height: inner.clientHeight, ease: "Quint.easeInOut"});
+	tl.to(success, {duration: 0.4, height: inner.clientHeight + 40, ease: "Quint.easeInOut"});
 	tl.to(form_, {duration: 0.4, opacity: 0, y: -30, ease: "Quint.easeInOut"});
 	tl.to(inner, {duration: 0, y: '30%', delay: -0.4, ease: "Quint.easeInOut"});
 	tl.to(inner, {duration: 0.4, opacity: 1, y: 0, delay: -0.2, ease: "Quint.easeInOut"});
