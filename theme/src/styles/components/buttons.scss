@@ -428,11 +428,29 @@ a {
 }
 
 @media screen and (max-width: 768px) {
-  .circle-button.video-button {
-    padding: 59.5%;
+  .button-wrapper.circle-button-wrapper {
+    width: 30vw;
+    height: 16vh;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    max-width: 124px;
+  }
 
-    .inner-circle svg {
-      max-width: 14px;
+  .circle-button.video-button {
+    width: 30vw;
+    height: 26vw;
+    padding: 0;
+    // padding: 59.5%;
+
+    .inner-circle {
+      width: 20vw;
+      height: 20vw;
+      padding: 0;
+
+      svg {
+        max-width: 14px;
+      }
     }
   }
 

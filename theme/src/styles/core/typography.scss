@@ -153,4 +153,15 @@ p.xx-large {
     font-size: 1.5em;
     line-height: 1.16667em;
   }
+
+  #home-section-five {
+    .row .subtitle {
+      margin-bottom: 26px;
+    }
+
+    .ninety:not(:last-of-type) {
+      font-size: 12vw;
+      line-height: 12vw;
+    }
+  }
 }

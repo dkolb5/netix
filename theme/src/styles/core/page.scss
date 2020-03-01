@@ -565,10 +565,10 @@ body#get-on-the-list {
 
 @media screen and (max-width: 768px) {
   #home-section-one {
-    .circle-button.video-button {
-      padding: 9.5%;
-      max-width: 124px;
-    }
+    // .circle-button.video-button {
+    //   // padding: 9.5%;
+    //   max-width: 124px;
+    // }
 
     .bottom-home {
       [class^=col-] {
@@ -594,7 +594,8 @@ body#get-on-the-list {
     .button-wrapper {
       position: relative;
       top: -30px;
-      margin-bottom: 140px;
+      // margin-bottom: 140px;
+      margin-bottom: 20px;
 
       @include justify-content(center);
       @include align-items(center);
@@ -614,7 +615,7 @@ body#get-on-the-list {
     &.bg-gray-behind {
       h4 {
         margin-top: 75px;
-        max-width: 50%;
+        max-width: 60%;
       }
 
       p {
@@ -633,13 +634,19 @@ body#get-on-the-list {
 
   #home-section-three {
     .row [class^=col-]:first-of-type svg {
-      top: -35px;
+      top: -45%;
       position: relative;
       z-index: 2;
+      max-width: 33.333%;
+    }
+
+    > .row:first-of-type  {
+      max-height: 28vw;
     }
 
     .hero-copy {
-      margin-top: 59px;
+      // margin-top: 59px;
+      margin-top: 0;
     }
 
     &.spacing-bottom-md {

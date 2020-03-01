@@ -147,6 +147,10 @@ body header .mobile-link .cta-link {
     }
   }
 
+  #shopify-section-header.sticky {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0, 0.1);
+  }
+
   header {
     .bws-logo {
       @include inline-flex();
@@ -167,7 +171,7 @@ body header .mobile-link .cta-link {
 
       position: relative;
       padding: 9px 30px;
-      top: -2px;
+      top: -9px;
       transition-delay: 0ms;
       transition-duration: 400ms;
       transition-timing-function: $cubic;
