@@ -147,8 +147,9 @@ body header .mobile-link .cta-link {
     }
   }
 
+  body.template-index #shopify-section-header.sticky,
   #shopify-section-header.sticky {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0, 0.1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
   }
 
   header {
@@ -242,4 +243,11 @@ body header .mobile-link .cta-link {
       @include flex-direction(column);
     }
   } 
+}
+
+@media screen and (max-width: 420px) {
+  body header .navigation-menu ul a.cta-link,
+  body.template-index header .navigation-menu ul a.cta-link {
+    font-size: 3vw;
+  }
 }

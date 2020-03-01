@@ -531,7 +531,9 @@ body#get-on-the-list {
 
   #about-section-one .about-hero-image {
     [class^=col-]:last-of-type {
-      top: 80px;
+      // top: 80px;
+      // top: 0px;
+      top: 14vw;
     }
 
     .circle-button.video-button-2 .inner-circle-2 .animate-text svg {
@@ -539,16 +541,26 @@ body#get-on-the-list {
       width: 100%;
     }
 
+    #about-section-one .about-hero-image .button-wrapper {
+      max-width: 30vw;
+    }
+
     .button-wrapper {
-      bottom: -14%;
-      width: 20vw;
-      max-width: 90px;
+      // bottom: -14%;
+      // bottom: -30vw;
+      bottom: -15%;
+      // width: 20vw;
+      // max-width: 90px;
 
       svg {
         width: 3vw;
         max-width: 24px;
       }
     }
+  }
+
+  #about-section-one .about-hero-image .button-wrapper {
+    max-width: 100%;
   }
 }
 
@@ -692,7 +704,8 @@ body#get-on-the-list {
   }
 
   #about-section-one {
-    padding-bottom: 190px;
+    // padding-bottom: 190px;
+    padding-bottom: 90px;
   }
 
   #about-section-two {
@@ -711,18 +724,56 @@ body#get-on-the-list {
       position: relative;
     }
   }
+
+  #about-section-two a {
+    font-size: 4.12vw;
+    line-height: 4.12vw;
+  }
+
+  #about-section-one {
+    .about-hero-image {
+      top: 0;
+    }
+
+    .hero-copy {
+      font-size: 10vw;
+      line-height: 10vw;
+    }
+
+    .about-hero-text-row {
+      height: auto;
+    }
+  }
+
+  #about-section-one {
+    .about-hero-image .button-wrapper {
+      position: relative;
+      // top: 0;
+      top: -13vw;
+    }
+
+    .hero-copy.bottom {
+      padding-bottom: 0;
+    }
+  }
+
+  #about-section-one .about-hero-image [class^=col-]:last-of-type {
+    // top: 80px;
+    top: 0px;
+  }
 } // End 768 Max
 
 @media screen and (max-width: 768px) and (min-width: 577px) {
   #about-section-two a {
-    font-size: 3.12vw;
-    line-height: 4.12vw;
+    font-size: 4.12vw;
+    line-height: 5.12vw;
+    top: 1vw;
   }
 }
 
 @media screen and (max-width: 576px) {
   #about-section-two a {
-    font-size: 4.12vw;
-    line-height: 4.12vw;
+    font-size: 5.12vw;
+    line-height: 6.12vw;
   }
 }
