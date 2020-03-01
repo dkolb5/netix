@@ -605,9 +605,8 @@ body#get-on-the-list {
     
     .button-wrapper {
       position: relative;
-      top: -30px;
-      // margin-bottom: 140px;
-      margin-bottom: 20px;
+      top: -4px;
+      margin-bottom: 50px;
 
       @include justify-content(center);
       @include align-items(center);
@@ -765,11 +764,19 @@ body#get-on-the-list {
     padding-bottom: 60px;
   }
 
+  .legal-content {
+    padding-bottom: 60px;
+  }
+
   .arrow.next {
     padding-right: 18px;
   }
   .arrow.prev {
     padding-left: 18px;
+  }
+
+  .slider-single h4 {
+    font-size: 20px;
   }
 } // End 768 Max
 
