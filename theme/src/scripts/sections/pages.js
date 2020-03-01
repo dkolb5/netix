@@ -16,12 +16,19 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
   function sticky_navigation(event) {
     let scroll = window.pageYOffset;
-    let header = document.getElementById('shopify-section-header');
+		let header = document.getElementById('shopify-section-header');
+		let subpage_close = null;
+
+		if (document.body.classList.contains('template-page')) {
+			subpage_close = document.querySelector('a.back-button');
+		}
 
     if (scroll > 101) {
-      header.classList.add('sticky');
+			header.classList.add('sticky');
+			subpage_close.classList.add('subpage-close-sticky');
     } else if (scroll <= 100) {
-      header.classList.remove('sticky');
+			header.classList.remove('sticky');
+			subpage_close.classList.remove('subpage-close-sticky');
     }
   }
 

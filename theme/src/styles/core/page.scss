@@ -32,6 +32,32 @@ body#get-on-the-list {
   }
 }
 
+body.template-page.page-terms-and-conditions,
+body.template-page.page-privacy-policy {
+  // a.back-button {
+  //   position: fixed;
+  //   top: 0;
+  //   right: 0;
+
+  //   &.subpage-close-sticky {
+  //     @include transform(translate(0, -10px));
+  //   }
+  // }
+
+  .bws-logo svg,
+  a.back-button {
+    @include transition(400ms all $cubic);
+  }
+
+  .bws-logo {
+    position: relative;
+  }
+
+  .sticky .bws-logo svg {
+    @include transform(translate(0, -8px));
+  }
+}
+
 #home-section-one {
   overflow: hidden;
 
@@ -449,6 +475,18 @@ body#get-on-the-list {
   svg {
     width: 30px;
     height: 30px;
+  }
+}
+
+@media all and (min-width: 1025px) {
+  body.template-page a.back-button {
+    position: fixed;
+    top: 0;
+    right: 0;
+  
+    &.subpage-close-sticky {
+      @include transform(translate(0, -10px));
+    }
   }
 }
 

@@ -214,7 +214,47 @@ body header .mobile-link .cta-link {
     background: $color-white;
     transition-delay: 400ms;
   }
-}
+
+  body.template-page.page-terms-and-conditions,
+  body.template-page.page-privacy-policy {
+    #shopify-section-header {
+      .subpage-background {
+        position: absolute;
+        top: 0;
+        height: 51px;
+        left: 0;
+        right: 0;
+        width: 100%;
+
+        @include transform(translate(0, -51px));
+      }
+
+      .subpage-background,
+      .bws-logo {
+        transition-duration: 400ms;
+        transition-timing-function: $cubic;
+      }
+
+      &.sticky {
+        background: transparent;
+
+        .subpage-background {
+          transition-delay: 400ms;
+          background: $color-white;
+          box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+
+          @include transform(translate(0, 39px));
+        }
+
+        .bws-logo {
+          transition-delay: 400ms;
+
+          @include transform(translate(0, 32px));
+        }
+      }
+    }
+  }
+} // End 1024 Max
 
 @media screen and (max-width: 768px) {
   #home-section-one {
