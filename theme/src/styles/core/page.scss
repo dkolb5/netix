@@ -323,6 +323,17 @@ body.template-page.page-privacy-policy {
       height: 2px;
     }
   }
+  h4 {
+    @include flexbox();
+    @include justify-content(flex-start);
+    @include align-items(center);
+
+    svg {
+      margin-right: 15px;
+      position: relative;
+      top: 0.5vw;
+    }
+  }
 
   h4 + svg {
     top: 12px;
@@ -531,19 +542,20 @@ body.template-page.page-privacy-policy {
 
     .icon-wrapper svg {
       width: 3vw;
-      top: 1vw;
-      position: relative;
+      // top: 1vw;
+      // position: relative;
     }
+  }
+
+  #home-section-three .hero-copy {
+    font-size: 9vw;
+    line-height: 9vw;
   }
 } // End 1024 Max and 769 Min
 
 @media screen and (max-width: 1024px) {
-  #home-section-three {
-    .hero-copy {
-      font-size: 9vw;
-      line-height: 9vw;
-      margin-top: 59px;
-    }
+  #home-section-three .hero-copy {
+    margin-top: 59px;
   }
 
   #home-section-four .row:nth-of-type(even) [class^=col-] {
@@ -641,7 +653,7 @@ body.template-page.page-privacy-policy {
     &.bg-gray-behind {
       h4 {
         margin-top: 75px;
-        max-width: 60%;
+        max-width: 65%;
       }
 
       p {
@@ -672,6 +684,8 @@ body.template-page.page-privacy-policy {
 
     .hero-copy {
       margin-top: 0;
+      font-size: 12vw;
+      line-height: 12vw;
     }
 
     &.spacing-bottom-md {
@@ -682,6 +696,10 @@ body.template-page.page-privacy-policy {
   #home-section-four {
     .image {
       padding-bottom: 100%;
+
+      &:first-of-type {
+        background-position: left center !important;
+      }
     }
 
     [class^=col-]:not(.image) {
@@ -737,9 +755,33 @@ body.template-page.page-privacy-policy {
     }
   }
 
-  #about-section-two a {
-    font-size: 4.12vw;
-    line-height: 4.12vw;
+  #about-section-two {
+    a {
+      font-size: 4.12vw;
+      line-height: 4.12vw;
+    }
+
+    h4 .icon-wrapper,
+    h4 .icon-wrapper svg {
+      top: 1vw;
+      bottom: 0;
+
+      @include inline-flex();
+    }
+
+    h4 .icon-wrapper {
+      width: 5vw;
+      height: 5.12vw;
+      min-width: 32px;
+      min-height: 33px;
+    }
+
+    h4 .icon-wrapper svg {
+      max-width: 32px;
+      max-height: 33px;
+      width: 100%;
+      height: 100%;
+    }
   }
 
   #about-section-one {
@@ -754,13 +796,13 @@ body.template-page.page-privacy-policy {
 
     .about-hero-text-row {
       height: auto;
+      padding-left: 0.5rem;
     }
   }
 
   #about-section-one {
     .about-hero-image .button-wrapper {
       position: relative;
-      // top: 0;
       top: -13vw;
     }
 

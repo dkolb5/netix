@@ -19,17 +19,31 @@ window.addEventListener("DOMContentLoaded", (event) => {
 		let header = document.getElementById('shopify-section-header');
 		let subpage_close = null;
 
-		if (document.body.classList.contains('template-page')) {
+		if (document.body.classList.contains('template-page') && ! document.body.classList.contains('page-about')) {
 			subpage_close = document.querySelector('a.back-button');
+
+			if (scroll > 101) {
+				header.classList.add('sticky');
+				subpage_close.classList.add('subpage-close-sticky');
+			} else if (scroll <= 100) {
+				header.classList.remove('sticky');
+				subpage_close.classList.remove('subpage-close-sticky');
+			}
+		} else {
+			if (scroll > 101) {
+				header.classList.add('sticky');
+			} else if (scroll <= 100) {
+				header.classList.remove('sticky');
+			}
 		}
 
-    if (scroll > 101) {
-			header.classList.add('sticky');
-			subpage_close.classList.add('subpage-close-sticky');
-    } else if (scroll <= 100) {
-			header.classList.remove('sticky');
-			subpage_close.classList.remove('subpage-close-sticky');
-    }
+    // if (scroll > 101) {
+		// 	header.classList.add('sticky');
+		// 	subpage_close.classList.add('subpage-close-sticky');
+    // } else if (scroll <= 100) {
+		// 	header.classList.remove('sticky');
+		// 	subpage_close.classList.remove('subpage-close-sticky');
+    // }
   }
 
   // Smooth Scroll Anchors
@@ -80,8 +94,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
 			function play_video() {
 				if (modal.classList.contains('video-modal')) {
 					let video = modal.querySelector('video');
+					// let source = modal.querySelector('video source');
+					// console.log(source);
 					video.setAttribute('controls', true);
 					video.play();
+					// source.play();
 				}
 			}
 		}
