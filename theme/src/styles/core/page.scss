@@ -50,6 +50,7 @@ body.template-page.page-privacy-policy {
 
 #home-section-one {
   overflow: hidden;
+  overflow-x: hidden;
 
   .hero-copy.bottom {
     padding-left: 14.333%;
@@ -213,6 +214,18 @@ body.template-page.page-privacy-policy {
 
 #list-section-one {
   min-height: 100vh;
+
+  .row:nth-of-type(2) {
+    // min-height: calc(100vh - 90px);
+    min-height: 100vh;
+    top: -90px;
+    position: relative;
+    overflow: hidden;
+
+    @include flexbox();
+    @include justify-content(center);
+    @include align-items(center);
+  }
 
   h3 {
     text-transform: none;
@@ -467,9 +480,9 @@ body.template-page.page-privacy-policy {
 }
 
 @media all and (min-width: 1024px) {
-  #list-section-one {
-    margin-bottom: 200px;
-  }
+  // #list-section-one {
+  //   margin-bottom: 200px;
+  // }
 
   #home-section-two {
     .adjust-offset[class^=col-] {

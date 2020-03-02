@@ -221,6 +221,10 @@ input {
   position: relative;
 }
 
+body.page-get-on-the-list .form-response.success {
+  margin-top: 50px;
+}
+
 .form-response {
   position: relative !important;
   overflow: hidden;

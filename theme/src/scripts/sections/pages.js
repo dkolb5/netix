@@ -477,11 +477,11 @@ function success_message(form_) {
 	let tl = new TimelineMax();
 	success.style.position = 'absolute';
 	success.style.overflow = 'visible';
-	tl.to(success, {duration: 0.4, scale: 1, ease: "Quint.easeInOut", y: -form_bounding.height - 20});
-	tl.to(success, {duration: 0.4, height: inner.clientHeight + 40, ease: "Quint.easeInOut"});
-	tl.to(form_, {duration: 0.4, opacity: 0, y: -30, ease: "Quint.easeInOut"});
-	tl.to(inner, {duration: 0, y: '30%', delay: -0.4, ease: "Quint.easeInOut"});
-	tl.to(inner, {duration: 0.4, opacity: 1, y: 0, delay: -0.2, ease: "Quint.easeInOut"});
+	tl.to(success, {duration: 0.2, scale: 1, ease: "power0", y: -form_bounding.height - 20});
+	tl.to(success, {duration: 0.2, height: inner.clientHeight + 40, ease: "power0"});
+	tl.to(form_, {duration: 0.2, opacity: 0, y: -30, ease: "power0"});
+	tl.to(inner, {duration: 0, y: '30%', ease: "power0"}, -0.2);
+	tl.to(inner, {duration: 0.4, opacity: 1, y: 0, ease: "power0"});
 }
 // ===========================================
 // Greensock - SplitText / strings
