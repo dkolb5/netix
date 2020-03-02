@@ -9,6 +9,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
 		});
 		
 		// document.addEventListener('scroll', content_inview);
+		let homer_hero_video = document.querySelector('#home-section-one video');
+		
+		homer_hero_video.setAttribute('autoplay', true);
+		homer_hero_video.play();
+		console.log(homer_hero_video, 'sdgsegef')
   }
 
   // Change header to be sticky
@@ -196,7 +201,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 	if (document.body.classList.contains('template-index') && window.innerWidth >= 1025) {
 		hero_animated_text();
 	} 
-	else {
+	else if (document.body.classList.contains('template-index')) {
 		let item = document.querySelector('#home-section-one .js-animating-text');
 		item.style.opacity = 1;
 	}
@@ -208,7 +213,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
     gsap.set(class_name, {perspective: 400});
     tl.from(chars, {duration: 0.8, opacity:0, scale:0, y:80, rotationX:180,  transformOrigin:"0% 50% -50",  ease:"back", stagger: 0.1}, "+=0");
-    // onComplete: function()  {chars.revert();},
   }
   
 

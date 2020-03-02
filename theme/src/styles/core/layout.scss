@@ -309,6 +309,7 @@ footer {
     &:hover {
       background: $color-dark;
 
+      svg circle,
       svg path {
         fill: $color-white;
       }
@@ -425,6 +426,7 @@ section video {
       font-weight: 500;
       text-transform: none;
       font-family: $hnpr;
+      margin-bottom: 8px;
     }
   }
 }

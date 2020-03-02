@@ -421,8 +421,21 @@ a {
   }
 }
 
-@media screen and (max-width: 1024px) {
+.instagram-icon.dark  {
+  svg path,
+  svg circle {
+    fill: $color-dark;
+    transition-timing-function: $cubic;
+    transition-duration: 400ms;
+  }
   
+
+  &:hover {
+    svg circle,
+    svg path {
+      fill: $color-orange;
+    }
+  }
 }
 
 @media screen and (max-width: 1024px) and (min-width: 769px) {
