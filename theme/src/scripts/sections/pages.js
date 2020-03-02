@@ -468,7 +468,7 @@ $( document ).ready(function() {
 	$('#contact_form').submit(function(event) {
 		event.preventDefault();
 			var $form = $(this);
-			success_message($form);
+			
 			jQuery.ajax({
 				type: 'POST',
 				async: true,
@@ -481,6 +481,7 @@ $( document ).ready(function() {
 					// console.log(t);
 				},
 				success: function(response) {
+					success_message($form);
 				// console.log('success blah');
 				// console.log($form.target, event.target);
 				}
@@ -494,12 +495,19 @@ function success_message(form_) {
 	let form_bounding = form.getBoundingClientRect();
 	let success = form.nextElementSibling;
 	let inner = success.childNodes[1];
+	let body_classes = document.body.classList;
 
 	let tl = new TimelineMax();
 	success.style.position = 'absolute';
 	success.style.overflow = 'visible';
 	tl.to(success, {duration: 0.2, scale: 1, ease: "power0", y: -form_bounding.height - 20});
-	tl.to(success, {duration: 0.2, height: inner.clientHeight + 40, ease: "power0"});
+
+	if (body_classes.contains('page-get-on-the-list')) {
+		tl.to(success, {duration: 0.2, height: inner.clientHeight + 40, y: (-form_bounding.height - 20) + 90, ease: "power0"});
+	} else {
+		tl.to(success, {duration: 0.2, height: inner.clientHeight + 40, ease: "power0"});
+	}
+	
 	tl.to(form_, {duration: 0.2, opacity: 0, y: -30, ease: "power0"});
 	tl.to(inner, {duration: 0, y: '30%', ease: "power0"}, -0.2);
 	tl.to(inner, {duration: 0.4, opacity: 1, y: 0, ease: "power0"});
