@@ -833,6 +833,13 @@ body.template-page.page-privacy-policy {
   .slider-single h4 {
     font-size: 20px;
   }
+
+  body.page-get-on-the-list #list-section-one .row:nth-of-type(2) {
+    padding-top: 90px;
+    overflow: scroll;
+
+    @include align-items(flex-start);
+  }
 } // End 768 Max
 
 @media screen and (max-width: 768px) and (min-width: 577px) {

@@ -19,7 +19,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 		let header = document.getElementById('shopify-section-header');
 		let subpage_close = null;
 
-		if (document.body.classList.contains('template-page') && ! document.body.classList.contains('page-about')) {
+		if (document.body.classList.contains('template-page') && ! document.body.classList.contains('page-about') && document.body.classList.contains('page-get-on-the-list')) {
 			subpage_close = document.querySelector('a.back-button');
 
 			if (scroll > 101) {
@@ -468,7 +468,7 @@ $( document ).ready(function() {
 	$('#contact_form').submit(function(event) {
 		event.preventDefault();
 			var $form = $(this);
-			
+			success_message($form);
 			jQuery.ajax({
 				type: 'POST',
 				async: true,
@@ -481,7 +481,7 @@ $( document ).ready(function() {
 					// console.log(t);
 				},
 				success: function(response) {
-					success_message($form);
+					// success_message($form);
 				// console.log('success blah');
 				// console.log($form.target, event.target);
 				}
@@ -504,6 +504,7 @@ function success_message(form_) {
 
 	if (body_classes.contains('page-get-on-the-list')) {
 		tl.to(success, {duration: 0.2, height: inner.clientHeight + 40, y: (-form_bounding.height - 20) + 90, ease: "power0"});
+		gsap.to(window, {duration: 0.4, scrollTo: 0, ease: "power0.ease"});
 	} else {
 		tl.to(success, {duration: 0.2, height: inner.clientHeight + 40, ease: "power0"});
 	}
