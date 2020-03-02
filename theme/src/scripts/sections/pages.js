@@ -193,8 +193,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
     item.classList.add('has-been-animated');
 	}
 	
-	if (document.body.classList.contains('template-index')) {
+	if (document.body.classList.contains('template-index') && window.innerWidth >= 1025) {
 		hero_animated_text();
+	} 
+	else {
+		let item = document.querySelector('#home-section-one .js-animating-text');
+		item.style.opacity = 1;
 	}
 
   function gasp_text(class_name) {
