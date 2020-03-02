@@ -468,7 +468,7 @@ $( document ).ready(function() {
 	$('#contact_form').submit(function(event) {
 		event.preventDefault();
 			var $form = $(this);
-			success_message($form);
+			
 			jQuery.ajax({
 				type: 'POST',
 				async: true,
@@ -481,7 +481,7 @@ $( document ).ready(function() {
 					// console.log(t);
 				},
 				success: function(response) {
-					// success_message($form);
+					success_message($form);
 				// console.log('success blah');
 				// console.log($form.target, event.target);
 				}
