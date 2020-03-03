@@ -95,18 +95,30 @@ window.addEventListener("DOMContentLoaded", (event) => {
 			modal.classList.add('active');
 			document.body.classList.add('no-overflow');
 
-			tl.to(modal, {duration: 0.2, y: 0, opacity: 1, ease: "Quint.easeInOut"});
+			tl.to(modal, {duration: 0.2, y: 0, opacity: 1, ease: "Quint.easeInOut", onComplete: play_video });
 			tl.to(modal_close, {duration: 0.4, y: 0, opacity: 1, ease: "Quint.easeInOut"});
-			tl.to(content, {duration: 0.4, y: 0, opacity: 1, ease: "Quint.easeInOut", onComplete: play_video });
+			// tl.to(content, {duration: 0.4, y: 0, opacity: 1, ease: "Quint.easeInOut", onComplete: play_video });
+			tl.to(content, {duration: 0.4, y: 0, opacity: 1, ease: "Quint.easeInOut"});
 
 			function play_video() {
 				if (modal.classList.contains('video-modal')) {
 					// let video = modal.querySelector('video');
 					// video.setAttribute('controls', true);
 					// video.play();
-					let video = modal.querySelector('iframe');
-					let link = video.getAttribute('src');
-					video.setAttribute('src', link + '?rel=0;&autoplay=1');
+					// let video = modal.querySelector('iframe');
+					// let link = video.getAttribute('src');
+					// video.setAttribute('src', link + '?rel=0;&autoplay=1');
+					let iframe_wrapper = modal.querySelector('.iframe-wrapper');
+					let iframe = document.createElement('iframe');
+					iframe.setAttribute('src', iframe_wrapper.dataset.youtube);
+					iframe_wrapper.appendChild(iframe);
+					let current_src = iframe_wrapper.childNodes[1].getAttribute('src');
+					
+					gsap.to(iframe_wrapper, {delay: 0.4, opacity: 1, y: 0, duration: 0.4, ease: "Quint.easeInOut", 
+						onComplete: () => {
+							iframe_wrapper.childNodes[1].setAttribute('src', current_src + '?rel=0;&autoplay=1');
+						}
+					});
 				}
 			}
 		}
@@ -136,14 +148,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
 			
 			function pause_video() {
 				if (modal.classList.contains('video-modal')) {
-					// let video = modal.querySelector('video');
-					// video.setAttribute('controls', '');
-					// video.pause();
-					let video = modal.querySelector('iframe');
-					let link = video.getAttribute('src');
-					let pause_src = link;
-					pause_src = pause_src.substring(0, pause_src.length - 18);
-					video.setAttribute('src', pause_src);
+					let iframe = modal.querySelector('.iframe-wrapper');
+					iframe.removeChild(iframe.childNodes[1]);
 				}
 			}
 		}

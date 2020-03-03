@@ -381,6 +381,9 @@ section video {
   position: relative;
   padding-bottom: 56.6%;
 
+  @include transition(400ms all $cubic);
+  @include transform(translate(0, -30px));
+
   iframe {
     position: absolute;
     width: 100%;
@@ -389,6 +392,7 @@ section video {
     right: 0;
     top: 0;
     bottom: 0;
+    border: none;
   }
 }
 
