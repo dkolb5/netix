@@ -377,6 +377,21 @@ section video {
   }
 }
 
+.iframe-wrapper {
+  position: relative;
+  padding-bottom: 56.6%;
+
+  iframe {
+    position: absolute;
+    width: 100%;
+    height: 86%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+}
+
 .no-overflow {
   overflow: hidden;
 }

@@ -8,13 +8,16 @@ window.addEventListener("DOMContentLoaded", (event) => {
       row.querySelector('.count .total').innerHTML = '0' + section_four_total;
 		});
 		
-		// document.addEventListener('scroll', content_inview);
+		play_hero_background_video();
+		
+	}
+	
+	function play_hero_background_video() {
 		let homer_hero_video = document.querySelector('#home-section-one video');
 		
 		homer_hero_video.setAttribute('autoplay', true);
 		homer_hero_video.play();
-		console.log(homer_hero_video, 'sdgsegef')
-  }
+	}
 
   // Change header to be sticky
   document.addEventListener('scroll', sticky_navigation);
@@ -98,12 +101,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 			function play_video() {
 				if (modal.classList.contains('video-modal')) {
-					let video = modal.querySelector('video');
-					// let source = modal.querySelector('video source');
-					// console.log(source);
-					video.setAttribute('controls', true);
-					video.play();
-					// source.play();
+					// let video = modal.querySelector('video');
+					// video.setAttribute('controls', true);
+					// video.play();
+					let video = modal.querySelector('iframe');
+					let link = video.getAttribute('src');
+					video.setAttribute('src', link + '?rel=0;&autoplay=1');
 				}
 			}
 		}
@@ -133,9 +136,14 @@ window.addEventListener("DOMContentLoaded", (event) => {
 			
 			function pause_video() {
 				if (modal.classList.contains('video-modal')) {
-					let video = modal.querySelector('video');
-					video.setAttribute('controls', '');
-					video.pause();
+					// let video = modal.querySelector('video');
+					// video.setAttribute('controls', '');
+					// video.pause();
+					let video = modal.querySelector('iframe');
+					let link = video.getAttribute('src');
+					let pause_src = link;
+					pause_src = pause_src.substring(0, pause_src.length - 18);
+					video.setAttribute('src', pause_src);
 				}
 			}
 		}
