@@ -451,25 +451,16 @@ a {
 
 @media screen and (max-width: 768px) {
   .button-wrapper.circle-button-wrapper {
-    width: 30vw;
-    // height: 16vh;
-    height: 11vh;
     margin-left: auto;
     margin-right: auto;
     padding: 0;
-    max-width: 124px;
   }
 
   .circle-button.video-button-2,
   .circle-button.video-button {
-    width: 26vw;
-    height: 26vw;
     padding: 0;
-    // padding: 59.5%;
 
     .inner-circle {
-      width: 20vw;
-      height: 20vw;
       padding: 0;
 
       svg {
@@ -485,22 +476,40 @@ a {
   .arrow-button h3 {
     font-size: 6.5vw;
   }
-
-  // #about-section-one img {
-  //   margin-bottom: 5vw;
-  // }
 }
 
-// @media screen and (max-width: 768px) and (min-width: 576px) {
-//   #about-section-one .about-hero-image .button-wrapper {
-//     bottom: 0;
-//     top: 89vw;
-//   }
-// }
+@media screen and (max-width: 768px) and (min-width: 576px) {
+  .button-wrapper.circle-button-wrapper {
+    width: 20vw;
+    height: 16vh;
+  }
 
-// @media screen and (max-width: 576px) {
-//   #about-section-one .about-hero-image .button-wrapper {
-//     bottom: 0;
-//     top: 95vw;
-//   }
-// }
+  .circle-button.video-button-2,
+  .circle-button.video-button {
+    width: 20vw;
+    height: 20vw;
+
+    .inner-circle {
+      width: 15vw;
+      height: 15vw;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .button-wrapper.circle-button-wrapper {
+    width: 30vw;
+    height: 11vh;
+  }
+
+  .circle-button.video-button-2,
+  .circle-button.video-button {
+    width: 26vw;
+    height: 26vw;
+
+    .inner-circle {
+      width: 20vw;
+      height: 20vw;
+    }
+  }
+}
