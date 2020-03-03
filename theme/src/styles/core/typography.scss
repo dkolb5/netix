@@ -165,3 +165,9 @@ p.xx-large {
     }
   }
 }
+
+@media screen and (max-width: 576px) {
+  #list-section-one h3 {
+    font-size: 1.8em;
+  }
+}
