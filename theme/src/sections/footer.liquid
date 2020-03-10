@@ -14,7 +14,7 @@
          <div class="col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0" id="footer-newsletter">
           <p class="subtitle with-border">Newsletter</p>
 
-          {% form 'contact' %}
+          {% comment %} {% form 'contact' %}
             <div class="form-wrapper">
               {{ form.errors | default_errors }}
               <div class="form-row message">
@@ -30,14 +30,42 @@
               </div>
             </div>
             
-          {% endform %}
+          {% endform %} {% endcomment %}
 
-          <div class="row form-response">
-            <div class="success">
-              {% include 'icon_circle_check' %}
-              <p class="x-large">Thank you for subscribing! We'll be in touch soon.</p>
+          <!-- Begin Mailchimp Signup Form -->
+          <div class="form-wrapper">
+              <form action="https://iconic-concepts.us3.list-manage.com/subscribe/post?u=68804fbe133733e8a52d8b08f&amp;id=21b37d8710" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                  <div class="mc-field-group">
+                    <div class="form-row message">
+                      <p>Sign up for Netix emails and get exclusive offers, new product previews and more.</p>
+                    </div>
+                    <div class="form-row inline-submit">
+                      <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span></label>
+                      <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                      <div class="clear"><input type="submit" value="SIGN ME UP" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                    </div>
+                  </div>
+                    <div id="mce-responses" class="clear mc-form-reponses">
+                      <div class="response" id="mce-error-response" style="display:none"></div>
+                      <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>    
+                      <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_68804fbe133733e8a52d8b08f_21b37d8710" tabindex="-1" value=""></div>
+              </form>
+            <div class="row form-response">
+              <div class="success">
+                {% include 'icon_circle_check' %}
+                <p class="x-large">Thank you for subscribing! We'll be in touch soon.</p>
+              </div>
+
+              <div class="failed">
+                {% include 'icon_sadface' %}
+                <p class="x-large">Failed</p>
+              </div>
             </div>
           </div>
+          <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[4]='PHONE';ftypes[4]='phone';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+          <!--End mc_embed_signup-->
         </div>
         <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-5 col-sm-offset-1 col-xs-12 col-xs-offset-0">
           <p class="subtitle with-border">Questions?</p>
@@ -56,7 +84,7 @@
             
             {% if settings.footer_general_press_email_1 != blank %}
               <li>
-                <p class="subtitle">presss inquiry</p>
+                <p class="subtitle">press inquiry</p>
                 <p>
                   <a href="mailto:{{ settings.footer_general_press_email_1 }}" class="double-line-hover">{{ settings.footer_general_press_email_1 }}</a>
                 </p>

@@ -18,6 +18,10 @@ body#get-on-the-list {
     visibility: hidden;
   }
 
+  #list-section-one .row {
+    overflow: visible;
+  }
+
   .subpage-close {
     position: relative;
   }
@@ -474,6 +478,54 @@ body.template-page.page-privacy-policy {
   svg {
     width: 30px;
     height: 30px;
+  }
+}
+
+body.page-lazy-load {
+  img {
+    display: block;
+    width: 100%;
+    margin-bottom: 0;
+
+    &.lazy-load {
+      transition-timing-function: linear;
+      transition-duration: 400ms;
+      -moz-transition-delay: 100ms;
+      position: relative;
+      overflow: hidden;
+    }
+  }
+
+  figure {
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+  
+    &.lazy-load-figure:before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transition-timing-function: linear;
+      transition-duration: 300ms;
+      z-index: 1;
+    }
+  
+    // &.lazy-load-figure.reveal::before {
+    //   transform: translate(0, 100%);
+    // }
+  }
+
+  main section {
+    padding-top: 15vw;
+    
+    &:last-of-type {
+      padding-bottom: 15vw;
+    }
   }
 }
 

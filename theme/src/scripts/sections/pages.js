@@ -102,12 +102,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 			function play_video() {
 				if (modal.classList.contains('video-modal')) {
-					// let video = modal.querySelector('video');
-					// video.setAttribute('controls', true);
-					// video.play();
-					// let video = modal.querySelector('iframe');
-					// let link = video.getAttribute('src');
-					// video.setAttribute('src', link + '?rel=0;&autoplay=1');
 					let iframe_wrapper = modal.querySelector('.iframe-wrapper');
 					let iframe = document.createElement('iframe');
 					iframe.setAttribute('src', iframe_wrapper.dataset.youtube);
@@ -228,7 +222,66 @@ window.addEventListener("DOMContentLoaded", (event) => {
     gsap.set(class_name, {perspective: 400});
     tl.from(chars, {duration: 0.8, opacity:0, scale:0, y:80, rotationX:180,  transformOrigin:"0% 50% -50",  ease:"back", stagger: 0.1}, "+=0");
   }
-  
+	
+	// Mailchimp submit - animation
+	let submit = document.getElementById('mc-embedded-subscribe');
+
+	submit.addEventListener('click', (event) => {
+		let form = event.target.closest('form');
+		let email = form.querySelector('input[type="Email"]');
+		let responses = form.querySelector('.mc-form-reponses');
+		
+		setTimeout( () => {
+			if (email.classList.contains('valid')) {
+				let temp = Array.from(responses.childNodes);
+				let response = temp.filter(item => { return item.classList != undefined; });
+				let response_html = new Array();
+				let form_bounding = form.parentElement.getBoundingClientRect();
+				let inner = null;
+				let body_classes = document.body.classList;
+				let message = null;
+				let message_wrapper = form.parentElement.querySelector('.form-response');
+				message_wrapper.style.overflow = 'visible';
+				
+				for(let a = 0; a < response.length; a++) {
+					if (response[a].innerHTML.length > 0) {
+						response_html.push(response[a].innerHTML, response[a].id);
+					}
+				}
+
+				if (response_html[1] == 'mce-success-response') {
+					message = form.nextElementSibling.childNodes[1];
+				} else if (response_html[1] == 'mce-error-response') {
+					message = form.nextElementSibling.childNodes[3];
+				}
+		
+				let tl = new TimelineMax();
+				let message_copy = message.querySelector('.x-large');
+				message_copy.innerHTML = response_html[0];
+				let message_copy_height = document.querySelector('.' + message.classList[0] + ' p.x-large').getBoundingClientRect();
+
+				tl.to(message_wrapper, {duration: 0.2, ease: "power0", y: (-form_bounding.height - 20) + 30, height: form_bounding.height + 40});
+
+				if (body_classes.contains('page-get-on-the-list')) {
+					tl.to(message, {duration: 0, height: message_copy_height + 40, y: (-form_bounding.height - 20) + 110, ease: "power0"});
+					gsap.to(window, {duration: 0.2, scrollTo: 0, ease: "power0.ease"});
+					tl.to(form.childNodes[1], {duration: 0.2, opacity: 0, y: -30, ease: "power0"});
+					if (window.innerWidth > 768) {
+						tl.to(message, {duration: 0.4, opacity: 1, y: 90, ease: "power0"});
+					} else {
+						tl.to(message, {duration: 0.4, opacity: 1, y: 0, ease: "power0"});
+					}
+					
+				} else {
+					tl.to(message, {duration: 0.2, height: message_copy_height + 40, ease: "power0"});
+
+					tl.to(form.childNodes[1], {duration: 0.2, opacity: 0, y: -30, ease: "power0"});
+					tl.to(message, {duration: 0, y: '30%', ease: "power0"}, -0.2);
+					tl.to(message, {duration: 0.4, opacity: 1, y: 0, ease: "power0"});
+				}
+			}
+		}, 500);
+	})
 
 	// gsap.set(text_one, {perspective: 400});
 	// // gsap.staggerFrom(mySplitText.chars, 0.8, {opacity: 0, sclae: 0, y: 80, rotationX: 180, transformOrigin: '0% 50% -50%', ease: Back.easeOut}, 0.01, allDone);
@@ -479,6 +532,26 @@ window.addEventListener("DOMContentLoaded", (event) => {
 		slider_one._init();
 	}
 	
+	if (document.body.classList.contains('page-lazy-load')) {
+		function lazy_load() {
+			const top_viewport = window.pageYOffset;
+			// const mid_viewport = top_viewport + (window.innerHeight / 2);
+			const mid_viewport = top_viewport + (window.innerHeight + 200);
+			
+			let images = Array.from(document.querySelectorAll('img.lazy-load'));
+		
+			images.forEach( (img) => {
+				if ( (mid_viewport - top_viewport) > (img.getBoundingClientRect().top) ) {
+					let full = img.dataset.full;
+					img.setAttribute('src', full);
+					img.classList.add('full-in');
+					img.parentElement.classList.add('reveal');
+				}
+			});
+		}
+		
+		document.addEventListener('scroll', lazy_load);
+	}
 	
 });
 

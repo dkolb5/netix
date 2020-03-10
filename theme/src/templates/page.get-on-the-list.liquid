@@ -6,7 +6,69 @@
   </div>
   <div class="row center-xs">
     <div class="col-lg-5 col-md-6 col-sm-8 col-xs-10">
-      {% form 'contact' %}
+      <div class="form-wrapper">
+        <!-- Begin Mailchimp Signup Form -->
+        {% comment %} <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css"> {% endcomment %}
+        {% comment %} <style type="text/css"> {% endcomment %}
+          {% comment %} #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+          /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+            We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */ {% endcomment %}
+        {% comment %} </style> {% endcomment %}
+        <div id="mc_embed_signup">
+        <form action="https://iconic-concepts.us3.list-manage.com/subscribe/post?u=68804fbe133733e8a52d8b08f&amp;id=21b37d8710" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <div id="mc_embed_signup_scroll">
+          <div class="form-row message">
+            <h3>The countdown begins. Stay tuned for news regarding our upcoming release date.</h3>
+            <p>Sign up today to receive updates and reminders leading up to the launch of the world’s first magnetic gym bag.</p>
+          </div>
+          <div class="form-row single">
+            <div class="mc-field-group">
+              <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+            </label>
+              <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+            </div>
+          </div>
+          <div class="form-row single">
+            <div class="mc-field-group">
+              <label for="mce-MMERGE1">Name </label>
+              <input type="text" value="" name="MMERGE1" class="" id="mce-MMERGE1">
+            </div>
+          </div>
+
+          <div class="form-row single submit">
+            <div class="button-wrapper">
+              <a href="#" class="regular-button orange">
+              <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+              <span class="text">submit now</span>
+                <!-- </div> -->
+              </a>
+            </div>
+          </div>
+          <div id="mce-responses" class="clear mc-form-reponses">
+              <div class="response" id="mce-error-response" style="display:none"></div>
+              <div class="response" id="mce-success-response" style="display:none"></div>
+            </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_68804fbe133733e8a52d8b08f_21b37d8710" tabindex="-1" value=""></div>
+              </div>
+          </form>
+          <div class="row form-response">
+              <div class="success">
+                {% include 'icon_circle_check' %}
+                <p class="x-large">Thank you for subscribing! We'll be in touch soon.</p>
+              </div>
+
+              <div class="failed">
+                {% include 'icon_sadface' %}
+                <p class="x-large">Failed</p>
+              </div>
+            </div>
+        </div>
+        <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[4]='PHONE';ftypes[4]='phone';fnames[1]='MMERGE1';ftypes[1]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+        <!--End mc_embed_signup-->
+      </div>
+
+
+      {% comment %} {% form 'contact' %}
         <div class="form-wrapper">
           <div class="form-row message">
             <h3>The countdown begins. Stay tuned for news regarding our upcoming release date.</h3>
@@ -43,7 +105,7 @@
           {% include 'icon_circle_check' %}
           <p class="x-large">Thank you for subscribing! We'll be in touch soon.</p>
         </div>
-      </div>
+      </div> {% endcomment %}
     </div>
   </div>
 </section>
