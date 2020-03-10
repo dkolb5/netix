@@ -280,8 +280,32 @@ window.addEventListener("DOMContentLoaded", (event) => {
 					tl.to(message, {duration: 0.4, opacity: 1, y: 0, ease: "power0"});
 				}
 			}
+
+			// Google Analytics
+			ga('send', 'event', { eventCategory: 'email subscription', eventAction: 'submit', eventLabel: 'sign me up'});
 		}, 500);
-	})
+	});
+
+	// Google Analytics
+
+	// Nav Cta's
+	let header_cta_links = document.querySelectorAll('header .cta-link');
+	header_cta_links.forEach(link => {
+		link.addEventListener('click', () => {
+			ga('send', 'event', { eventCategory: 'conversion', eventAction: 'click', eventLabel: 'get the bag header'});
+		})
+	});
+
+	// Home Buttons
+	if (document.body.classList.contains('template-index')) {
+		let temp = Array.from(document.querySelectorAll('main .regular-button'));
+		let home_page_buttons = temp.filter(item => { return item.classList != undefined || ! item.classList.contain('video-button') });
+		home_page_buttons.forEach(button => {
+			button.addEventListener('click', () => {
+				ga('send', 'event', { eventCategory: 'conversion', eventAction: 'click', eventLabel: 'get the bag main'});
+			})
+		})
+	}
 
 	// gsap.set(text_one, {perspective: 400});
 	// // gsap.staggerFrom(mySplitText.chars, 0.8, {opacity: 0, sclae: 0, y: 80, rotationX: 180, transformOrigin: '0% 50% -50%', ease: Back.easeOut}, 0.01, allDone);
